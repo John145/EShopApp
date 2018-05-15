@@ -9,5 +9,12 @@
 			"imgs/guide/img3.jpg",
 			"imgs/guide/img4.jpg"
 		]
+	},
+	"homepage.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css"
+		]
 	}
 }
