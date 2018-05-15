@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "main.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -213,11 +213,108 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"main.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"template/home.html"
+				],
+				"refer": [
+					"template/sort.html",
+					"template/cart.html",
+					"template/my.html"
+				],
+				"priority": 0
+			},
+			"template/home.html": {
+				"resources": [
+					"imgs/slider/slider3.jpg",
+					"imgs/slider/slider2.jpg",
+					"fonts/mui.ttf",
+					"imgs/slider/slider1.jpg",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/cart.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/sort.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/jquery.min.js",
+					"imgs/sort/nz1.jpg",
+					"imgs/sort/nz3.jpg",
+					"imgs/sort/nz5.jpg",
+					"imgs/sort/nz4.jpg",
+					"imgs/sort/nz6.jpg",
+					"imgs/sort/nz2.jpg",
+					"imgs/sort/nz8.jpg",
+					"imgs/sort/nz9.jpg",
+					"imgs/sort/nz7.jpg",
+					"imgs/sort/nvz7.jpg",
+					"imgs/sort/nvz1.jpg",
+					"imgs/sort/nx4.jpg",
+					"imgs/sort/nx3.jpg",
+					"imgs/sort/nvz9.jpg",
+					"imgs/sort/nx6.jpg",
+					"imgs/sort/nx2.jpg",
+					"imgs/sort/nx5.jpg",
+					"imgs/sort/nvz4.jpg",
+					"imgs/sort/nvz3.jpg",
+					"imgs/sort/nvz5.jpg",
+					"imgs/sort/nvz8.jpg",
+					"imgs/sort/nx1.jpg",
+					"imgs/sort/nvz2.jpg",
+					"imgs/sort/nvz6.jpg",
+					"imgs/sort/nvx3.jpg",
+					"imgs/sort/nvx2.jpg",
+					"imgs/sort/nvx4.jpg",
+					"imgs/sort/nvx1.jpg",
+					"imgs/sort/nvx7.jpg",
+					"imgs/sort/nvx6.jpg",
+					"imgs/sort/nvx9.jpg",
+					"imgs/sort/nvx5.jpg",
+					"imgs/sort/nvx8.jpg",
+					"template/list.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/my.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/list.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"template/sort.html",
+					"imgs/sort/nvz1.jpg",
+					"imgs/sort/nvz2.jpg"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
 			"resources": [
-				"fonts/mui.ttf",
 				"js/mui.js",
 				"css/mui.css"
 			]

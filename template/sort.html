@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<style type="text/css">
+			body{
+				background: white;
+			}
+			.col20{
+				width: 20%;
+				float: left;
+			}
+			.col60{
+				width: 60%;
+				float: left;
+			}
+			.col20,.col60 a{
+				line-height: 55px;
+			}
+			.white{
+				color: white;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+				background: #F8F8F8;
+			}
+			ul li{
+				text-align: center;
+				height: 50px;
+				line-height: 50px;
+				position: relative;
+				font-size: 0.9em;
+			}
+			ul li a{
+				display: block;
+			}
+			.bgWhite{
+				background: white;
+			}
+			ul li div{
+				background: #E02E24;
+				width: 4px;
+				height: 25px;
+				position: absolute;
+				top: 12.5px;
+				left: 0px;
+			}
+			.activeLi{
+				background: white;
+			}
+			ul li a{
+				color: black;
+			}
+			ul li a:active{
+				color: #E02E24;
+			}
+			#right h4{
+				font-size: 0.8em;
+			}
+			#right h4 span{
+				color: #CCC;
+				float: right;
+				margin-right: 10px;
+			}
+			.item{
+				display: inline-block;
+				width: 32%;
+				text-align: center;
+			}
+			.item img{
+				width: 70px;
+				height: 70px;
+			}
+			.item p{
+				text-align: center;
+				color: black;
+			}
+			.wrap h4{
+				margin-top: 15px;
+				margin-bottom: 15px;
+				text-indent: 1.5em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+		    <div id="header" class="mui-row" style="text-align: center;background: #E02E24;">
+		        <div class="col20">
+		        	<a class="white" href="#"><</a>
+		        </div>
+		        <div class="col60">
+		        	<input style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
+		        </div>
+		        <div class="col20">
+		        	<a class="white" href="#">搜索</a>
+		        </div>
+		    </div>
+		    
+		    <div id="item" class="bgWhite">
+		    	<div class="mui-row">
+		    		<div id="left" style="overflow: auto;" class="mui-col-sm-3 mui-col-xs-3">
+			    		<ul>
+			    			<li class="activeLi"><a href="#nz" style="color: #E02E24;"><div class="mui-visibility"></div>男装</a></li>
+			    			<li><a href="#nx"><div class="mui-hidden"></div>男鞋</a></li>
+			    			<li><a href="#nvz"><div class="mui-hidden"></div>女装</a></li>
+			    			<li><a href="#nvx"><div class="mui-hidden"></div>女鞋</a></li>
+			    			<li><a href="#sjsm"><div class="mui-hidden"></div>手机数码</a></li>
+			    			<li><a href="#dnbg"><div class="mui-hidden"></div>电脑办公</a></li>
+			    			<li><a href="#mytz"><div class="mui-hidden"></div>母婴童装</a></li>
+			    			<li><a href="#ydhw"><div class="mui-hidden"></div>运动户外</a></li>
+			    			<li><a href="#nyps"><div class="mui-hidden"></div>内衣配饰</a></li>
+			    			<li><a href="#spsx"><div class="mui-hidden"></div>食品生鲜</a></li>
+			    			<li><a href="#jsyl"><div class="mui-hidden"></div>酒水饮料</a></li>
+			    			<li><a href="#jjjz"><div class="mui-hidden"></div>家具家装</a></li>
+			    			<li><a href="#xbsd"><div class="mui-hidden"></div>箱包手袋</a></li>
+			    			<li><a href="#zbzb"><div class="mui-hidden"></div>钟表珠宝</a></li>
+			    			<li><a href="#tsyx"><div class="mui-hidden"></div>图书音像</a></li>
+			    			<li><a href="#wjyq"><div class="mui-hidden"></div>玩具乐器</a></li>
+			    			<li><a href="#yybj"><div class="mui-hidden"></div>医药保健</a></li>
+			    		</ul>
+			    	</div>
+			    	<div id="right" style="overflow: auto;" class="mui-col-sm-9 mui-col-xs-9">
+			    		
+			    		<!--<div class="wrap" id="nz">
+			    			<h4>男装<span>查看全部 ></span></h4>
+			    			<a onclick="testOpen()">
+			    				<div class="item">
+				    				<img src="../imgs/sort/nz1.jpg" />
+				    				<p>夹克</p>
+				    			</div>
+			    			</a>
+			    		</div>-->
+			    		
+			    		
+			    	</div>
+			    	<!-- end of right -->
+			    	
+		    	</div>
+		    </div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//计算多余的部分适应界面
+				$('#left').css("height",window.innerHeight - $('#header').height());
+				$('#right').css("height",window.innerHeight - $('#header').height());
+				//添加点击事件
+				$('ul li').click(function(){
+					$('ul li').attr("class","");
+					$('ul li a').css("color","black");
+					$('ul li div').attr("class","mui-hidden");
+					
+					$(this).attr("class","activeLi");
+					$(this).find('a').css("color","#E02E24");
+					$(this).find('div').attr("class","mui-visibility");
+				});
+				//自动生成视图
+				var items = [
+				{
+					fileTag:"nz",
+					count:9,
+					names:["夹克","T恤","针织衫","衬衫","卫衣","风衣","牛仔裤","休闲裤","自营男装"]
+				},{
+					fileTag:"nx",
+					count:6,
+					names:["休闲鞋","皮鞋","皮靴","帆布鞋","板鞋","自营鞋靴"]
+				},{
+					fileTag:"nvz",
+					count:9,
+					names:["早春新品","连衣裙","衬衫","T恤","牛仔裤","卫衣","针织衫","牛仔外套","自营女装"]
+				},{
+					fileTag:"nvx",
+					count:12,
+					names:["休闲鞋","中跟单鞋","大码女鞋","深口单鞋","粗跟单鞋","妈妈鞋","婚鞋","通勒OL","凉鞋","高跟单鞋","尖头单鞋","单鞋ie"]
+				},{
+					fileTag:"sjsm",
+					count:9,
+					names:["小米","华为","荣耀","iPhone","vivo","OPPO","魅族","三星","一加"]
+				},{
+					fileTag:"dnbg",
+					count:6,
+					names:["轻薄本","游戏本","机械键盘","组装电脑","移动硬盘","显卡"]
+				},{
+					fileTag:"mytz",
+					count:6,
+					names:["拉拉裤","L","M","S","NB","XL"]
+				},{
+					fileTag:"ydhw",
+					count:6,
+					names:["跑步鞋","体育用品","鱼竿鱼线","山地车","篮球鞋","跑步机"]
+				},{
+					fileTag:"nyps",
+					count:6,
+					names:["男士内裤","女士内裤","平角内裤","蕾丝内裤","无痕内裤","低腰内裤"]
+				},{
+					fileTag:"spsx",
+					count:6,
+					names:["休闲零食","牛奶","饼干蛋糕","果糖/巧克力","方便食品","油"]
+				},{
+					fileTag:"jsyl",
+					count:6,
+					names:["白酒","葡萄酒","啤酒","黄酒/养生酒","收藏酒","酒品馆"]
+				},{
+					fileTag:"jjjz",
+					count:6,
+					names:["吸顶灯","实木餐桌","实木床","实木沙发","沐浴花洒","开关插座"]
+				},{
+					fileTag:"xbsd",
+					count:3,
+					names:["拉杆箱","时尚男包","男士腰带"]
+				},{
+					fileTag:"zbzb",
+					count:6,
+					names:["瑞表","国表","德表","日韩表","儿童手表","欧美表"]
+				},{
+					fileTag:"tsyx",
+					count:3,
+					names:["文学","童书","教材辅助"]
+				},{
+					fileTag:"wjyq",
+					count:6,
+					names:["0-6个月","6-12个月","1-3岁","3-6岁","6-14岁","14岁以上"]
+				},{
+					fileTag:"yybj",
+					count:3,
+					names:["补肾壮阳","男科泌尿","补气养血"]
+				}];
+				var names = ["男装","男鞋","女装","女鞋","手机数码","电脑办公","母婴童装","运动户外","内衣配饰","食品生鲜","酒水饮料","家居家装","箱包手袋","钟表珠宝","图书音像","玩具乐器","医药保健"];
+				for(var i = 0; i < items.length;i++){
+					var item = items[i];
+					var divWrap = $("<div></div>");
+					divWrap.attr("class","wrap");
+					divWrap.attr("id",item.fileTag);
+					divWrap.append("<h4>"+names[i]+"<span>查看全部 ></span></h4>");
+					for(var j = 0; j < item.count;j++){
+						divWrap.append('<a onclick="testOpen()"><div class="item"><img src="../imgs/sort/'+item.fileTag+(j+1)+'.jpg" /><p>'+item.names[j]+'</p></div></a>');
+					}
+					$('#right').append(divWrap);
+				}
+			});
+			mui.init();
+			function testOpen(){
+				var webview = mui.openWindow({
+					url:'list.html',
+					extras:{
+						name:'mui'  //扩展参数
+					}
+				});
+				return false;
+			}
+		</script>
+	</body>
+
+</html>

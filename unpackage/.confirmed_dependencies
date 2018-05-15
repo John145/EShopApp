@@ -10,11 +10,98 @@
 			"imgs/guide/img4.jpg"
 		]
 	},
-	"homepage.html": {
+	"main.html": {
 		"resources": [
 			"js/mui.min.js",
 			"css/iconfont.css",
+			"css/mui.min.css",
+			"template/home.html"
+		],
+		"refer": [
+			"template/home.html",
+			"template/sort.html",
+			"template/cart.html",
+			"template/my.html"
+		]
+	},
+	"template/home.html": {
+		"resources": [
+			"imgs/slider/slider3.jpg",
+			"imgs/slider/slider2.jpg",
+			"fonts/mui.ttf",
+			"imgs/slider/slider1.jpg",
+			"js/mui.min.js",
 			"css/mui.min.css"
+		]
+	},
+	"template/cart.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"template/sort.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/jquery.min.js",
+			"imgs/sort/nz1.jpg",
+			"imgs/sort/nz3.jpg",
+			"imgs/sort/nz5.jpg",
+			"imgs/sort/nz4.jpg",
+			"imgs/sort/nz6.jpg",
+			"imgs/sort/nz2.jpg",
+			"imgs/sort/nz8.jpg",
+			"imgs/sort/nz9.jpg",
+			"imgs/sort/nz7.jpg",
+			"imgs/sort/nvz7.jpg",
+			"imgs/sort/nvz1.jpg",
+			"imgs/sort/nx4.jpg",
+			"imgs/sort/nx3.jpg",
+			"imgs/sort/nvz9.jpg",
+			"imgs/sort/nx6.jpg",
+			"imgs/sort/nx2.jpg",
+			"imgs/sort/nx5.jpg",
+			"imgs/sort/nvz4.jpg",
+			"imgs/sort/nvz3.jpg",
+			"imgs/sort/nvz5.jpg",
+			"imgs/sort/nvz8.jpg",
+			"imgs/sort/nx1.jpg",
+			"imgs/sort/nvz2.jpg",
+			"imgs/sort/nvz6.jpg",
+			"imgs/sort/nvx3.jpg",
+			"imgs/sort/nvx2.jpg",
+			"imgs/sort/nvx4.jpg",
+			"imgs/sort/nvx1.jpg",
+			"imgs/sort/nvx7.jpg",
+			"imgs/sort/nvx6.jpg",
+			"imgs/sort/nvx9.jpg",
+			"imgs/sort/nvx5.jpg",
+			"imgs/sort/nvx8.jpg",
+			"template/list.html"
+		],
+		"refer": [
+			"template/list.html"
+		]
+	},
+	"template/my.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		]
+	},
+	"template/list.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"template/sort.html",
+			"imgs/sort/nvz1.jpg",
+			"imgs/sort/nvz2.jpg"
+		],
+		"refer": [
+			"template/sort.html"
 		]
 	}
 }
