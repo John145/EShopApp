@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <style type="text/css">
+    	body{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	img{
+    		float: left;
+    	}
+    	#container{
+    		float: left;
+    		overflow: hidden;
+    	}
+    	#wrap{
+    		overflow: auto;
+    	}
+    	*:after{
+    		display: block;
+    		content: "";
+    		clear: both;
+    	}
+    </style>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      	//判断是否是第一次打开APP,对localsession中是否存在theFirstOpenApp变量进行判断
+//    	if(!window.localStorage.isTheFirstOpenApp){
+//    		//显示介绍页面
+//    		console.log("你好!!");
+//    		window.localStorage.isTheFirstOpenApp = false;
+//    	}
+		$(document).ready(function(){
+			$('img,#container').css("width",window.innerWidth);
+			$('img,#container').css("height",window.innerHeight);
+			$('#wrap').css("width",window.innerWidth * $('img').length);
+			
+			//滑动事件的实现
+			var startX = 0;
+			var endX = 0;
+			$('img').on("touchstart",function(e){
+				startX = e.originalEvent.changedTouches[0].pageX;
+			});
+			$('img').on("touchend",function(e){
+				endX = e.originalEvent.changedTouches[0].pageX;
+				if(startX-endX > 0){
+					//向左滑动
+					var tmp = $('#container').scrollLeft();
+					tmp = tmp + window.innerWidth;
+					if(tmp <= window.innerWidth * ($('img').length-1)){
+						//执行切换动画
+						movetoLeft(tmp);
+					}
+				}else if(startX-endX < 0){
+					//向右滑动
+					var tmp = $('#container').scrollLeft();
+					tmp = tmp - window.innerWidth;
+					if(tmp >= 0){
+						//执行切换动画
+						moveToRight(tmp);
+					}
+				}
+			});
+		});
+		function movetoLeft(tmp){
+			var i = $('#container').scrollLeft()
+			var timer = setInterval(function(){
+				if(i<tmp){
+					if(tmp - i < 10){
+						i = tmp;
+					}else{
+						i+=10;
+					}
+					$('#container').scrollLeft(i);
+				}else{
+					clearInterval(timer);	
+				}
+			},1);
+		}
+		function moveToRight(tmp){
+			var i = $('#container').scrollLeft()
+			var timer = setInterval(function(){
+				if(i>tmp){
+					if(i - tmp < 10){
+						i = tmp;
+					}else{
+						i-=10;
+					}
+					$('#container').scrollLeft(i);
+				}else{
+					clearInterval(timer);	
+				}
+			},1);
+		}
+    </script>
+</head>
+<body>
+	<div id="container">
+		<div id="wrap">
+			<img src="imgs/guide/img1.jpg" />
+			<img src="imgs/guide/img2.jpg" />
+			<img src="imgs/guide/img3.jpg" />
+			<img src="imgs/guide/img4.jpg" />
+		</div>
+	</div>
+</body>
+</html>

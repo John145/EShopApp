@@ -1,0 +1,13 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"imgs/guide/img1.jpg",
+			"imgs/guide/img2.jpg",
+			"js/jquery.min.js",
+			"imgs/guide/img3.jpg",
+			"imgs/guide/img4.jpg"
+		]
+	}
+}
