@@ -81,6 +81,9 @@
 				text-align: center;
 				color: black;
 			}
+			.wrap{
+				padding-top: 6px;
+			}
 			.wrap h4{
 				margin-top: 15px;
 				margin-bottom: 15px;
@@ -241,21 +244,25 @@
 					divWrap.attr("id",item.fileTag);
 					divWrap.append("<h4>"+names[i]+"<span>查看全部 ></span></h4>");
 					for(var j = 0; j < item.count;j++){
-						divWrap.append('<a onclick="testOpen()"><div class="item"><img src="../imgs/sort/'+item.fileTag+(j+1)+'.jpg" /><p>'+item.names[j]+'</p></div></a>');
+						divWrap.append('<div class="item"><img src="../imgs/sort/'+item.fileTag+(j+1)+'.jpg" /><p>'+item.names[j]+'</p></div>');
 					}
 					$('#right').append(divWrap);
 				}
+				//item添加点击事件
+				$('.item').click(function(){
+					var name = $(this).find('p').text();
+					var sort = $(this).parent().find('h4').html().split('<span>')[0]; //xx查看全部>
+					//打开新窗口有
+					var webview = mui.openWindow({
+						url:'list.html',
+						id:'list',
+						extras:{
+							param:'{"sort":'+sort+',"names":'+name+'}'  //扩展参数
+						}
+					});
+				});
 			});
 			mui.init();
-			function testOpen(){
-				var webview = mui.openWindow({
-					url:'list.html',
-					extras:{
-						name:'mui'  //扩展参数
-					}
-				});
-				return false;
-			}
 		</script>
 	</body>
 
