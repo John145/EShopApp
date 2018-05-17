@@ -96,7 +96,7 @@
 		<div class="mui-content">
 		    <div id="header" class="mui-row" style="text-align: center;background: #E02E24;">
 		        <div class="col20">
-		        	<a class="white" href="#"><</a>
+		        	<a class="white" href="#"><img style="width: 32px; height: 32px; position: relative; top: 11.5px;" src="../imgs/others/saoma.png"/></a>
 		        </div>
 		        <div class="col60">
 		        	<input style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
@@ -169,35 +169,27 @@
 				var items = [
 				{
 					fileTag:"nz",
-					count:9,
-					names:["夹克","T恤","针织衫","衬衫","卫衣","风衣","牛仔裤","休闲裤","自营男装"]
+					names:["夹克","T恤","针织衫","衬衫","卫衣","风衣","牛仔裤","休闲裤","正装"]
 				},{
 					fileTag:"nx",
-					count:6,
-					names:["休闲鞋","皮鞋","皮靴","帆布鞋","板鞋","自营鞋靴"]
+					names:["休闲鞋","皮鞋","皮靴","帆布鞋","板鞋","凉鞋"]
 				},{
 					fileTag:"nvz",
-					count:9,
-					names:["早春新品","连衣裙","衬衫","T恤","牛仔裤","卫衣","针织衫","牛仔外套","自营女装"]
+					names:["风衣","连衣裙","衬衫","T恤","牛仔裤","卫衣","针织衫","牛仔外套","白衬衫"]
 				},{
 					fileTag:"nvx",
-					count:12,
-					names:["休闲鞋","中跟单鞋","大码女鞋","深口单鞋","粗跟单鞋","妈妈鞋","婚鞋","通勒OL","凉鞋","高跟单鞋","尖头单鞋","单鞋ie"]
+					names:["休闲鞋","中跟单鞋","大码女鞋","深口单鞋","粗跟单鞋","妈妈鞋","婚鞋","通勒OL","凉鞋","高跟单鞋","尖头单鞋","单鞋"]
 				},{
 					fileTag:"sjsm",
-					count:9,
 					names:["小米","华为","荣耀","iPhone","vivo","OPPO","魅族","三星","一加"]
 				},{
 					fileTag:"dnbg",
-					count:6,
 					names:["轻薄本","游戏本","机械键盘","组装电脑","移动硬盘","显卡"]
 				},{
 					fileTag:"mytz",
-					count:6,
-					names:["拉拉裤","L","M","S","NB","XL"]
+					names:["纸尿裤","奶粉","孕妈装","童装","童鞋","婴儿车"]
 				},{
 					fileTag:"ydhw",
-					count:6,
 					names:["跑步鞋","体育用品","鱼竿鱼线","山地车","篮球鞋","跑步机"]
 				},{
 					fileTag:"nyps",
@@ -205,35 +197,27 @@
 					names:["男士内裤","女士内裤","平角内裤","蕾丝内裤","无痕内裤","低腰内裤"]
 				},{
 					fileTag:"spsx",
-					count:6,
 					names:["休闲零食","牛奶","饼干蛋糕","果糖/巧克力","方便食品","油"]
 				},{
 					fileTag:"jsyl",
-					count:6,
-					names:["白酒","葡萄酒","啤酒","黄酒/养生酒","收藏酒","酒品馆"]
+					names:["白酒","葡萄酒","啤酒","黄酒","收藏酒","饮料"]
 				},{
 					fileTag:"jjjz",
-					count:6,
 					names:["吸顶灯","实木餐桌","实木床","实木沙发","沐浴花洒","开关插座"]
 				},{
 					fileTag:"xbsd",
-					count:3,
 					names:["拉杆箱","时尚男包","男士腰带"]
 				},{
 					fileTag:"zbzb",
-					count:6,
 					names:["瑞表","国表","德表","日韩表","儿童手表","欧美表"]
 				},{
 					fileTag:"tsyx",
-					count:3,
 					names:["文学","童书","教材辅助"]
 				},{
 					fileTag:"wjyq",
-					count:6,
-					names:["0-6个月","6-12个月","1-3岁","3-6岁","6-14岁","14岁以上"]
+					names:["积木","拼图","乐器","洋娃娃","画板","橡皮泥"]
 				},{
 					fileTag:"yybj",
-					count:3,
 					names:["补肾壮阳","男科泌尿","补气养血"]
 				}];
 				var names = ["男装","男鞋","女装","女鞋","手机数码","电脑办公","母婴童装","运动户外","内衣配饰","食品生鲜","酒水饮料","家居家装","箱包手袋","钟表珠宝","图书音像","玩具乐器","医药保健"];
@@ -243,23 +227,17 @@
 					divWrap.attr("class","wrap");
 					divWrap.attr("id",item.fileTag);
 					divWrap.append("<h4>"+names[i]+"<span>查看全部 ></span></h4>");
-					for(var j = 0; j < item.count;j++){
+					for(var j = 0; j < item.names.length;j++){
 						divWrap.append('<div class="item"><img src="../imgs/sort/'+item.fileTag+(j+1)+'.jpg" /><p>'+item.names[j]+'</p></div>');
 					}
 					$('#right').append(divWrap);
 				}
 				//item添加点击事件
 				$('.item').click(function(){
-					var name = $(this).find('p').text();
-					var sort = $(this).parent().find('h4').html().split('<span>')[0]; //xx查看全部>
-					//打开新窗口有
-					var webview = mui.openWindow({
-						url:'list.html',
-						id:'list',
-						extras:{
-							param:'{"sort":'+sort+',"names":'+name+'}'  //扩展参数
-						}
-					});
+					var sort = $(this).find('p').text();
+					var head = $(this).parent().find('h4').html().split('<span>')[0]; //xx查看全部>
+					//打开新窗口
+					location.href = encodeURI("list.html?head="+head+"&sort="+sort);
 				});
 			});
 			mui.init();

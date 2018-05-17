@@ -235,7 +235,18 @@
 					"fonts/mui.ttf",
 					"imgs/slider/slider1.jpg",
 					"js/mui.min.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"imgs/sort/jsyl4.jpg",
+					"imgs/sort/nz3.jpg",
+					"imgs/foods/food7.jpg",
+					"imgs/15.png",
+					"imgs/foods/food2.jpg",
+					"imgs/foods/food1.jpg",
+					"imgs/foods/food6.jpg",
+					"imgs/sort/jjjz4.jpg",
+					"imgs/sort/zbzb4.jpg",
+					"imgs/foods/food5.jpg",
+					"imgs/foods/food4.jpg"
 				],
 				"refer": [],
 				"priority": 0
@@ -362,7 +373,8 @@
 					"imgs/sort/sjsm4.jpg",
 					"imgs/sort/sjsm5.jpg",
 					"imgs/sort/wjyq6.jpg",
-					"imgs/sort/zbzb5.jpg"
+					"imgs/sort/zbzb5.jpg",
+					"imgs/others/saoma.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -383,7 +395,15 @@
 					"template/sort.html",
 					"imgs/sort/nvz1.jpg",
 					"imgs/sort/nvz2.jpg",
-					"js/jquery.min.js"
+					"js/jquery.min.js",
+					"template/detail.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/detail.html": {
+				"resources": [
+					"template/list.html"
 				],
 				"refer": [],
 				"priority": 0

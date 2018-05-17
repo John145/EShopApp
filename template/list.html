@@ -101,84 +101,75 @@
 		    		<a href="">服务</a>
 		    		<a href="">筛选</a>
 		    	</div>
-				<div class="item">
+				<!--<div class="item">
     				<img src="http://img10.360buyimg.com/n2/s370x474_jfs/t15826/322/2218191682/68548/5e61786d/5a966926Ndd571b17.jpg!cc_370x474!q70.jpg" />
     				<div class="info">
     					<div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">2018春上新季修身修身立领时尚潮流休闲</div>
 	    				<div class="price">￥138.00</div>
 	    				<div class="pingjia">10001人评价</div>
     				</div>
-    			</div>
-				<div class="item">
-    				<img src="http://img10.360buyimg.com/n2/s370x474_jfs/t19177/130/1732228942/414077/479f5366/5ad56209Nfa194f78.jpg!cc_370x474!q70.jpg" />
-    				<div class="info">
-    					<div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">杉杉休闲时尚经典男夹克</div>
-	    				<div class="price">￥359.00</div>
-	    				<div class="pingjia">2210人评价</div>
-    				</div>
-    			</div>
-    			<div class="item">
-    				<img src="http://img12.360buyimg.com/n2/s370x474_jfs/t8377/235/467644472/167943/a8940ead/59a8d6caN62fac85f.jpg!cc_370x474!q70.jpg" />
-    				<div class="info">
-    					<div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">杉杉休闲时尚经典男夹克</div>
-	    				<div class="price">￥359.00</div>
-	    				<div class="pingjia">2210人评价</div>
-    				</div>
-    			</div>
-    			<div class="item">
-    				<img src="http://img11.360buyimg.com/n2/s370x474_jfs/t19117/157/226732649/212996/f36c56f8/5a658b92Ne148be95.jpg!cc_370x474!q70.jpg" />
-    				<div class="info">
-    					<div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">杉杉休闲时尚经典男夹克</div>
-	    				<div class="price">￥359.00</div>
-	    				<div class="pingjia">2210人评价</div>
-    				</div>
-    			</div>
-    			<div class="item">
-    				<img src="http://img10.360buyimg.com/n8/s370x474_jfs/t19033/69/385601326/126979/27472e4/5a72a0ceNc6d0904a.jpg!cc_370x474!q70.jpg.webp" />
-    				<div class="info">
-    					<div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">杉杉休闲时尚经典男夹克</div>
-	    				<div class="price">￥359.00</div>
-	    				<div class="pingjia">2210人评价</div>
-    				</div>
-    			</div>
-    			<div class="item">
-    				<img src="http://img11.360buyimg.com/n2/s370x474_jfs/t19117/157/226732649/212996/f36c56f8/5a658b92Ne148be95.jpg!cc_370x474!q70.jpg" />
-    				<div class="info">
-    					<div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">杉杉休闲时尚经典男夹克</div>
-	    				<div class="price">￥359.00</div>
-	    				<div class="pingjia">2210人评价</div>
-    				</div>
-    			</div>
+    			</div>-->
 		    </div>
 		</div>
 		
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				$('.desc').css("width",$('.item img').css("width")-20);
-			});
-			mui.init();
-			mui.plusReady(function() {
-                var self = plus.webview.currentWebview();
-                console.log(self.param);
-            });
-            mui.ajax('http://111.230.64.249/php/json.php',{
-				dataType:'json',//服务器返回json格式数据
-				type:'post',//HTTP请求类型
-				timeout:10000,//超时时间设置为10秒；
-				success:function(data){
-					//服务器返回响应，根据响应结果，分析是否登录成功；
-					console.log(data);
-				},
-				error:function(xhr,type,errorThrown){
-					//异常处理；
-					console.log(type);
-				}
+				//获取数据封装到obj中
+				var sort={};
+				var str = decodeURIComponent(location.href);
+				var num=str.indexOf("?") 
+		   		str=str.substr(num+1);
+		   		var arr=str.split("&"); 
+		   		for(var i=0;i < arr.length;i++){ 
+				    num=arr[i].indexOf("="); 
+				    if(num>0){ 
+					    name=arr[i].substring(0,num);
+					    value=arr[i].substr(num+1);
+					    sort[name]=value;
+				    } 
+			    }
+		   		console.log(sort);
+		   		//通过ajax获取远程数据
+		   		if(sort.head == "男装" || sort.head == "男鞋"){
+                	sort.sort = sort.sort+"男";
+                }else if(sort.head == "女装" || sort.head == "女鞋"){
+                	sort.sort = sort.sort+"女";
+                }
+                console.log(sort.sort);
+		   		$.ajax('http://192.168.1.100:8080/EShopAppServer/item/findBySort.action',{
+                	data: {sort:sort.sort},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+						if(data.length == 0){
+							$("#items").append("<h3>该板块暂时没有商品信息</h3>");
+						}
+						for(var i = 0; i < data.length;i++){
+							var item = $('<div class="item"><img src="'+
+							    data[i].img+'" /><div class="info"><div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">'+
+							    data[i].name+'</div><div class="price">￥'+
+							    data[i].price+'</div><div class="pingjia">'+
+							    data[i].sold+'人评价</div></div>');
+							$('#items').append(item);
+						}
+						//console.log(data);
+						//为每一个item添加点击事件
+						$('.item').click(function(){
+							location.href="detail.html";
+						});
+					},
+					error:function(xhr,type,errorThrown){
+						//异常处理；
+						console.log(type);
+					}
+				});
 			});
 			function back(){
-				plus.webview.currentWebview().close();
+				location.href="sort.html"
 			}
+			mui.init();
 		</script>
 	</body>
-
 </html>
