@@ -6,14 +6,236 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.col20{
+				width: 20%;
+				float: left;
+			}
+			.col60{
+				width: 60%;
+				float: left;
+			}
+			.col20,.col60 a{
+				line-height: 55px;
+			}
+			.white{
+				color: white;
+			}
+			
+			.bgWhite{
+				background-color: white;
+			}
+			.info{
+				padding: 6px;
+				/*border-top: 1px solid #CCC;*/
+			}
+			.info div{
+				margin-bottom: 10px;
+			}
+			.name{
+				font-size: 1.1em;
+			}
+			.price{
+				color: #FF0036;
+				font-size: 1.3em;
+			}
+			.other span{
+				color: #999;
+				width: 50%;
+				display: block;
+				float: left;
+			}
+			.other:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.service span{
+				color: #051b28;
+				margin-right: 12px;
+			}
+			.bottom:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.bottom{
+				width: 100%;
+				position: fixed;
+				bottom: 0px;
+				/*border-top: 1px solid #999;*/
+				background: #FFFFFF;
+			}
+			.bottom div{
+				float: left;
+			}
+			.add{
+				width: 30%;
+				height: 50px;
+				background: #FF9500;
+				color: #fff;
+				line-height: 50px;
+				text-align: center;
+			}
+			.buy{
+				width: 30%;
+				height: 50px;
+				background: #FF0036;
+				color: #fff;
+				line-height: 50px;
+				text-align: center;
+			}
+			.test1{
+				width: 13.333%;
+				height: 50px;
+				text-align: center;
+			}
+			.bottom .test1 span{
+				color: #999;
+				font-size: 0.9em;
+			}
+			.bgWhite{
+				background: white;
+			}
+			.tishi{
+				position: fixed;
+				top: 50%;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				background: #999;
+				opacity: 0.8;
+				color: white;
+			}
+		</style>
 	</head>
 
-	<body>
-		<img src="../imgs/foods/food1.jpg" />
+	<body class="bgWhite">
+		<div id="header" class="mui-row" style="text-align: center;background: #E02E24;">
+	        <div class="col20">
+	        	<a style="color: white; line-height: 50px; margin-left: 20px;" href="#" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	        </div>
+	        <div class="col60">
+	        	<a style="color: white; font-size: 1.1em;">商品详情</a>
+	        </div>
+	        <div class="col20">
+	        	<a class="white" href="#">搜索</a>
+	        </div>
+	    </div>
+		<div class="mui-content bgWhite" style="padding-bottom: 50px;">
+			<!--商品图片-->
+		    <div class="mui-slider">
+			  <div class="mui-slider-group">
+			    <div class="mui-slider-item">
+			      <img />
+			    </div>
+			    <div class="mui-slider-item">
+			      <img />
+			    </div>
+			    <div class="mui-slider-item">
+			      <img />
+			    </div>
+			  </div>
+			</div>
+			<!--商品介绍-->
+			<div class="info">
+				<div class="name"></div>
+				<div class="price">￥<span>0.01</span></div>
+				<div class="other">
+					<span>评价：2000+</span>
+					<span>剩余：100件</span>
+				</div>
+				<div class="service">
+					·<span>正品保证</span>
+					·<span>不支持7天退还</span>
+					·<span>急速退款</span>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="test1">
+				<span class="mui-icon mui-icon-bars"></span><br />
+				<span>功能</span>
+			</div>
+			<div class="test1">
+				<span class="mui-icon mui-icon-star"></span><br />
+				<span>收藏</span>
+			</div>
+			<div class="test1">
+				<span class="mui-icon mui-icon-help"></span><br />
+				<span>问题</span>
+			</div>
+			<div class="add">加入购物车</div>
+			<div class="buy">立即购买</div>
+		</div>
 		
+		<div class="tishi" style="display: none;">加入购物车成功!!!</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			$(document).ready(function(){
+				var obj = {};
+				var str = decodeURIComponent(location.href);
+				var num=str.indexOf("?") 
+		   		str=str.substr(num+1);
+		   		var arr=str.split("&"); 
+		   		for(var i=0;i < arr.length;i++){ 
+				    num=arr[i].indexOf("="); 
+				    if(num>0){ 
+					    name=arr[i].substring(0,num);
+					    value=arr[i].substr(num+1);
+					    obj[name]=value;
+				    } 
+			    }
+		   		$.ajax('http://192.168.1.100:8080/EShopAppServer/item/findById.action',{
+                	data: {id:obj.id},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+						console.log(data);
+						$('.mui-slider img').attr("src",data.img);
+						$('.info .name').text(data.name);
+						$('.info .price span').text(data.price);
+						$('.info .other span')[0].innerHTML = "评价人数："+data.sold;
+						$('.info .other span')[1].innerHTML = "剩余："+data.count;
+						window.data = data;
+					},
+					error:function(xhr,type,errorThrown){
+						//异常处理；
+						console.log(type);
+					}
+				});
+				//添加购物车
+				$('.add').click(function(){
+					if(!localStorage.cart){
+						localStorage.cart = JSON.stringify([]);
+					}
+					var cart = JSON.parse(localStorage.cart);
+					var flag = true; //是否需要添加
+					for(var i = 0; i < cart.length;i++){
+						if(cart[i].item.id == window.data.id){
+							cart[i].count++;
+							flag = false;
+						}
+					}
+					if(flag){
+						var tmp = {
+							count:1,
+							item:window.data
+						};
+						cart.push(tmp);
+					}
+					localStorage.cart = JSON.stringify(cart);
+					//提示加入购物车成功
+					$('.tishi').css('display','block');
+					var timer = setInterval(function(){
+						$('.tishi').css('display','none');
+						clearInterval(timer);
+					},500);
+				});
+			});
+			mui.init();
 		</script>
 	</body>
 

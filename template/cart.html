@@ -6,6 +6,7 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/jquery.min.js"></script>
 		<style type="text/css">
 			.bgWhite{
 				background: white;
@@ -15,20 +16,225 @@
 				color: #CCC;
 				margin-top: 50%;
 			}
+			ul{
+				list-style-type: none;
+				padding: 0px;
+				margin: 0px;
+				padding: 8px;
+			}
+			ul li{
+				background: #F5F5F5;
+				padding: 8px;
+				margin-bottom: 8px;
+			}
+			ul li:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.section2 img{
+				width: 100px;
+				height: 100px;
+			}
+			.section1{
+				width: 10%;
+				float: left;
+				text-align: center;
+				line-height: 100px;
+			}
+			.section2{
+				width: 30%;
+				float: left;
+			}
+			.section3{
+				height: 100px;
+				width: 60%;
+				float: left;
+				font-size: 0.8em;
+			}
+			.section3 div:nth-child(1){
+				height: 70px;
+				overflow: hidden;
+				white-space: nowrap;  
+				text-overflow: ellipsis;
+			}
+			.section3 div{
+				padding-left: 10px;
+			}
+			.bottom{
+				width: 100%;
+				position: fixed;
+				bottom: 0px;
+				background: white;
+			}
+			.select{
+				width: 70%;
+				float: left;
+				line-height: 50px;
+				padding-left: 20px;
+			}
+			.calc{
+				width: 30%;
+				height: 50px;
+				background: #FF9500;
+				color: white;
+				text-align: center;
+				line-height: 50px;
+				float: left;
+			}
+			.control:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.control{
+				padding-top: 10px;
+				border-bottom: 1px solid #999999;
+				padding-bottom: 5px;
+				display: none;
+			}
+			.delete{
+				float: right;
+				border: 1px solid red;
+				color: red;
+				width: 50px;
+				height: 20px;
+				text-align: center;
+				line-break: 20px;
+				border-radius: 5px;
+				margin-right: 20px;
+			}
 		</style>
 	</head>
 
 	<body class="bgWhite">
 		<header class="mui-bar mui-bar-nav bgWhite" style="box-shadow: none;">
 		    <h1 class="mui-title">购物车</h1>
+		    <button id="manager" style="float: right; margin-top: 5.5px; margin-right: 20px;">管理</button>
 		</header>
-		<div class="mui-content bgWhite">
-		    <div class="hint">购物车为空</div>
+		<div class="mui-content bgWhite" id="items">
+		    <!--<div class="hint">购物车为空</div>-->
+		    <div class="control">
+		    	<div class="delete">删除</div>
+		    </div>
+		    <ul style="overflow: auto;">
+		    	<!--<li>
+		    		<div class="section1">
+						<input type="checkbox" />
+		    		</div>
+		    		<div class="section2">
+		    			<img src="https://gw.alicdn.com/bao/uploaded/i4/1695308781/TB24I01X_zGK1JjSspkXXXNUpXa_!!1695308781.jpg_100x100q90s150.jpg_.webp" alt="" />
+		    		</div>
+		    		<div class="section3">
+		    			<div>Meizu/魅族 魅蓝 Note6双摄大屏幕大电池note5升级款学生智能手机</div>
+		    			<div style="margin-top: 10px;"><span style="color: #e93b3d; font-size: 1.2em;">￥899.00</span><span style="float: right; margin-right: 10px;">x1</span></div>
+		    		</div>
+		    	</li>-->
+		    </ul>
+		</div>
+		<div class="bottom">
+			<div class="select">
+				<input type="checkbox" />全选
+				<div style="float: right; margin-right: 10px;">
+					<span>合计</span>
+					<span id="totalMoney" style="color: #e93b3d; font-size: 1.2em;">￥0.00</span>
+				</div>
+			</div>
+			<div class="calc">
+				结算
+			</div>
 		</div>
 		
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			$(document).ready(function(){
+				$('#items ul').html("");
+				getDataFromLocal();
+				//全选按钮添加点击事件
+				$('.select input').click(function(){
+					if($('.select input').attr('checked')){
+						$('ul li .section1 input').attr('checked',true);
+						//计算总金额
+						var totalMoney = 0.00;
+						var cart = JSON.parse(localStorage.cart);
+						for(var i = 0; i < cart.length;i++){
+							totalMoney += cart[i].item.price * cart[i].count;
+						}
+						$('#totalMoney').text('￥'+totalMoney);
+					}else{
+						$('ul li .section1 input').attr('checked',false);
+						$('#totalMoney').text('￥0.00');
+					}
+				});
+				//给每个li添加点击事件
+				$('ul li .section3').click(function(){
+					top.location.href = encodeURI("detail.html?id="+$(this).attr('itemid'));
+				});
+				//添加管理事件
+				window.isOpen = false;
+				$('#manager').click(function(){
+					if(window.isOpen){
+						$(this).text("管理");
+						$('.control').css('display','none');
+						window.isOpen = false;
+					}else{
+						$(this).text("完成");
+						$('.control').css('display','block');
+						window.isOpen = true;
+					}
+				});
+				//给删除添加点击事件
+				$('.delete').click(function(){
+					var inputs = $('ul li input');
+					var cart = JSON.parse(localStorage.cart);
+					for(var i = 0; i < inputs.length;i++){
+						if($(inputs[i]).attr('checked')){
+							//从localStorage中删除
+							for(var j = 0; j < cart.length;j++){
+								if($(inputs[i]).attr('itemid') == cart[j].item.id){
+									//将元素放到最后一个，然后通过pop方法进行删除
+									/*var tmp = cart[cart.length-1];
+									cart[cart.length-1] = cart[j];
+									cart[j] = tmp;
+									cart.pop();
+									break;*/
+									//通过将元素前移实现
+									for(var k = j;k<cart.length-1;k++){
+										cart[k] = cart[k+1];
+									}
+									cart.pop();
+								}
+							}
+						}
+					}
+					console.log(cart);
+					localStorage.cart = JSON.stringify(cart);
+					$('#items ul').html("");
+					getDataFromLocal();
+				});
+			});
+			function getDataFromLocal(){
+				if(localStorage.cart && JSON.parse(localStorage.cart).length > 0){
+					var cart = JSON.parse(localStorage.cart);
+					for(var i = 0; i < cart.length;i++){
+//						console.log(cart[i]);
+						var li = '<li><div class="section1"><input itemid="'+
+									cart[i].item.id+'" type="checkbox" /></div><div class="section2"><img src="'+
+									cart[i].item.img+'" alt="" /></div><div class="section3" itemid="'+
+									cart[i].item.id+'"><div>'+
+				    		     	cart[i].item.name+'</div><div style="margin-top: 10px;"><span style="color: #e93b3d; font-size: 1.2em;">￥'+
+				    		     	cart[i].item.price+'</span><span style="float: right; margin-right: 10px;">x'+
+				    		     	cart[i].count+'</span></div></div></li>';
+				    		
+						$('#items ul').append(li);
+					}
+				}else{
+					$('#items').html('<div class="hint">购物车为空</div>');
+				}
+				$('ul').width(window.innerWidth);
+				$('ul').height(window.innerHeight - $('header').height() - $('.bottom').height());
+			}
 		</script>
 	</body>
 

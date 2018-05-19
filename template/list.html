@@ -77,6 +77,11 @@
 				text-align: center;
 				font-size: 0.8em;
 			}
+			.hint{
+				text-align: center;
+				color: #CCC;
+				margin-top: 50%;
+			}
 		</style>
 	</head>
 
@@ -84,7 +89,7 @@
 		<div class="mui-content">
 			<div id="header" class="mui-row" style="text-align: center;background: #E02E24;">
 		        <div class="col20">
-		        	<a onclick="back()" class="white" href="#"><</a>
+		        	<a style="color: white; line-height: 50px; margin-left: 20px;" href="#" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		        </div>
 		        <div class="col60">
 		        	<input style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
@@ -144,10 +149,11 @@
 					timeout:10000,//超时时间设置为10秒；
 					success:function(data){
 						if(data.length == 0){
-							$("#items").append("<h3>该板块暂时没有商品信息</h3>");
+							$("#items").append('<div class="hint">该板块暂时没有商品信息</div>');
 						}
 						for(var i = 0; i < data.length;i++){
-							var item = $('<div class="item"><img src="'+
+							var item = $('<div class="item" itemid='+
+								data[i].id+'><img src="'+
 							    data[i].img+'" /><div class="info"><div class="desc" style="overflow: hidden; white-space:nowrap; text-overflow: ellipsis;">'+
 							    data[i].name+'</div><div class="price">￥'+
 							    data[i].price+'</div><div class="pingjia">'+
@@ -157,7 +163,8 @@
 						//console.log(data);
 						//为每一个item添加点击事件
 						$('.item').click(function(){
-							location.href="detail.html";
+//							location.href=encodeURI("detail.html?id="+$(this).attr('itemid'));
+							top.location.href = encodeURI("detail.html?id="+$(this).attr('itemid'));
 						});
 					},
 					error:function(xhr,type,errorThrown){
