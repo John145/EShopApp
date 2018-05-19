@@ -238,7 +238,14 @@
 					var head = $(this).parent().find('h4').html().split('<span>')[0]; //xx查看全部>
 					//打开新窗口
 //					location.href = encodeURI("list.html?head="+head+"&sort="+sort);
-					top.location.href = encodeURI("list.html?head="+head+"&sort="+sort);
+//					top.location.href = encodeURI("list.html?head="+head+"&sort="+sort);
+					mui.openWindow({
+						url:'list.html',
+						extras:{
+							head:head,
+							sort:sort
+						}
+					});
 				});
 			});
 			mui.init();

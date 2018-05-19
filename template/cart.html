@@ -149,6 +149,7 @@
 		<script type="text/javascript">
 			mui.init();
 			$(document).ready(function(){
+				console.log("cart ready");
 				$('#items ul').html("");
 				getDataFromLocal();
 				//全选按钮添加点击事件
@@ -169,7 +170,14 @@
 				});
 				//给每个li添加点击事件
 				$('ul li .section3').click(function(){
-					top.location.href = encodeURI("detail.html?id="+$(this).attr('itemid'));
+//					top.location.href = encodeURI("detail.html?id="+$(this).attr('itemid'));
+					var itemid = $(this).attr('itemid');
+					mui.openWindow({
+						url:'detail.html',
+						extras:{
+							itemid:itemid
+						}
+					});
 				});
 				//添加管理事件
 				window.isOpen = false;

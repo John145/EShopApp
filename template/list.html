@@ -119,21 +119,13 @@
 		
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){
-				//获取数据封装到obj中
+			mui.init();
+			mui.plusReady(function(){
+				//获取参数
+				var self = plus.webview.currentWebview();
 				var sort={};
-				var str = decodeURIComponent(location.href);
-				var num=str.indexOf("?") 
-		   		str=str.substr(num+1);
-		   		var arr=str.split("&"); 
-		   		for(var i=0;i < arr.length;i++){ 
-				    num=arr[i].indexOf("="); 
-				    if(num>0){ 
-					    name=arr[i].substring(0,num);
-					    value=arr[i].substr(num+1);
-					    sort[name]=value;
-				    } 
-			    }
+				sort.head = self.head;
+				sort.sort = self.sort;
 		   		console.log(sort);
 		   		//通过ajax获取远程数据
 		   		if(sort.head == "男装" || sort.head == "男鞋"){
@@ -164,7 +156,14 @@
 						//为每一个item添加点击事件
 						$('.item').click(function(){
 //							location.href=encodeURI("detail.html?id="+$(this).attr('itemid'));
-							top.location.href = encodeURI("detail.html?id="+$(this).attr('itemid'));
+//							top.location.href = encodeURI("detail.html?id="+$(this).attr('itemid'));
+							var itemid = $(this).attr('itemid');
+							mui.openWindow({
+								url:'detail.html',
+								extras:{
+									itemid:itemid
+								}
+							});
 						});
 					},
 					error:function(xhr,type,errorThrown){
@@ -173,10 +172,6 @@
 					}
 				});
 			});
-			function back(){
-				location.href="sort.html"
-			}
-			mui.init();
 		</script>
 	</body>
 </html>

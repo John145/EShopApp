@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			#start {  
+                position: absolute;  
+                bottom: 40px;  
+                width: 60%;  
+                left: 20%;  
+            }  
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-slider">
+		  <div class="mui-slider-group">
+		    <div class="mui-slider-item">
+		      <img src="imgs/guide/img1.jpg" />
+		    </div>
+		    <div class="mui-slider-item">
+		      <img src="imgs/guide/img2.jpg" />
+		    </div>
+		    <div class="mui-slider-item">
+		      <img src="imgs/guide/img3.jpg" />
+		    </div>
+		    <div class="mui-slider-item">
+		      <img src="imgs/guide/img4.jpg" />
+		      <button class="mui-btn mui-btn-blue mui-btn-outlined" type="button" id="start">开始体验</button>  
+		    </div>
+		  </div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.mui-slider img').width(window.innerWidth);
+				$('.mui-slider img').height(window.innerHeight);
+				$('#start').click(function(){
+					location.href="main.html";
+				});
+			});
+			mui.init()
+		</script>
+	</body>
+</html>

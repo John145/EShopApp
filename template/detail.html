@@ -173,20 +173,13 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){
+			mui.init();
+			mui.plusReady(function(){
+				//获取参数
+				var self = plus.webview.currentWebview();
 				var obj = {};
-				var str = decodeURIComponent(location.href);
-				var num=str.indexOf("?") 
-		   		str=str.substr(num+1);
-		   		var arr=str.split("&"); 
-		   		for(var i=0;i < arr.length;i++){ 
-				    num=arr[i].indexOf("="); 
-				    if(num>0){ 
-					    name=arr[i].substring(0,num);
-					    value=arr[i].substr(num+1);
-					    obj[name]=value;
-				    } 
-			    }
+				obj.id = self.itemid;
+				console.log(obj.id);
 		   		$.ajax('http://192.168.1.100:8080/EShopAppServer/item/findById.action',{
                 	data: {id:obj.id},
 					dataType:'json',//服务器返回json格式数据
@@ -235,7 +228,6 @@
 					},500);
 				});
 			});
-			mui.init();
 		</script>
 	</body>
 
