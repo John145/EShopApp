@@ -6,10 +6,200 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.header{
+				width: 100%;
+				height: 200px;
+				background: url(../imgs/others/bg01.jpg);
+			}
+			.tubiao{
+				position: relative;
+				float: left;
+				border-radius:50%; 
+				top: 60px;
+				left: 20px;
+				height: 80px; 
+				overflow:hidden;
+			}
+			.mui-icon-image{
+				position: relative;
+				height: 80px;
+				width: 80px;
+			}
+			.username{
+				width: 200px;
+				height: 30px;
+				position: relative;
+				left: 50px;
+				top: 90px;
+				color: white;
+			}
+			.username span{
+				height: 30px;
+				line-height: 30px;
+				font-size: 20px;
+				text-align: left;
+			}
+			ul, ol, li, p, div, h1, h2, h3, h4, h5 {
+			    list-style: none;
+			    margin: 0;
+			    padding: 0;
+			    font-weight: 400;
+			}
+			.orderAct{
+				margin-top: 15px;
+				margin-bottom: 10px;
+				display: -webkit-box;
+			}
+			.orderAct img{
+				text-align: center;
+				width: 30px;
+			}
+			.orderAct li{
+				width: 100%;
+				display: -webkit-box;
+				font-weight: 400;
+				-webkit-box-flex: 1;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				text-align: -webkit-match-parent;
+			}
+			.orderAct p{
+				color: #051b28;
+				text-align: center;
+				font-size: 14px;
+			}
+			.userbehavior{
+				margin-top: 12px;
+				margin-bottom: 5px;
+				display: -webkit-box;
+			}
+			.userbehavior ul{
+				width: 100%;
+			}
+			.userbehavior li{
+				color: #051b28;
+				width: 33.33333%;
+				display: block;
+				font-weight: 400;
+				float: left;
+			}
+			.userbehavior p{
+				text-align: center;
+				font-size: 16px;
+			}
+			.margin-bottom{
+				height: 8px;
+				background: #d9d9d9;
+			}
+			.myOrders{
+				height: 40px;
+				
+				border-bottom: 1px solid #ccc;
+			}
+			.title{
+				position: relative;
+				float: left;
+				display: block;
+			}
+			.title p{
+				font-size: 20px;
+				color: black;
+				display: block;
+				line-height: 40px;
+				text-align: left;
+				margin-left: 10px;
+			}
+			.sub{
+				position: relative;
+				float: right;
+				display: block;
+			}
+			.sub p{
+				line-height: 40px;
+				font-size: 14px;
+				margin-right: 8px;
+			}
+		</style>
 	</head>
 
 	<body>
-		my
+		<div class="header">
+			<div class="tubiao">
+				<img class="mui-icon-image" src="../imgs/others/pic_default1.png" style=""/>
+			</div>
+			<div class="username">
+				<span class="name">酷肖2016</span>
+			</div>
+		</div>
+		
+		<div class="userbehavior">
+			<ul>
+				<li>
+					<a>
+						<p>0</p>
+						<p>收藏夹</p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>0</p>
+						<p>收藏店铺</p>
+					</a>
+				</li>
+				<li>
+					<a>
+						<p>08</p>
+						<p>我的足迹</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="margin-bottom"></div>
+		
+		<div class="myOrders">
+			<a>
+				<div class="title"><p>我的订单<p></div>
+				<div class="sub"><p>查看全部订单 ><p></div>
+			</a>
+		</div>
+		
+		<div class="orders">
+			<ul class="orderAct">
+				<li>
+					<a href="#">
+						<p><img src="../imgs/others/unpaid.png" /></p>
+						<p>待付款</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<p><img src="../imgs/others/dfh.png" /></p>
+						<p>待发货</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<p><img src="../imgs/others/dsh.png" /></p>
+						<p>待收货</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<p><img src="../imgs/others/dpj.png" /></p>
+						<p>待评价</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<p><img src="../imgs/others/refund.png" /></p>
+						<p>退款/售后</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="margin-bottom"></div>
 		
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">

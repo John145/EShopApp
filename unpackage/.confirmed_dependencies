@@ -316,7 +316,12 @@
 	"template/my.html": {
 		"resources": [
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"imgs/others/待评价.png",
+			"imgs/others/待发货.png",
+			"imgs/others/退款，售后.png",
+			"imgs/others/待收货.png",
+			"imgs/others/待付款.png"
 		]
 	},
 	"template/list.html": {
