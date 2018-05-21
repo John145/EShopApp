@@ -102,7 +102,15 @@
 				text-align: center;
 				line-break: 20px;
 				border-radius: 5px;
-				margin-right: 20px;
+				margin-right: 30px;
+			}
+			.zhifubao{
+				width: 100%;
+				position: absolute;
+				bottom: -392px;
+				left: 0px;
+				background: white;
+				transition: 0.5s;
 			}
 		</style>
 	</head>
@@ -135,7 +143,7 @@
 		<div class="bottom">
 			<div class="select">
 				<input type="checkbox" />全选
-				<div style="float: right; margin-right: 10px;">
+				<div style="float: right; margin-right: 10px; height: 50px;">
 					<span>合计</span>
 					<span id="totalMoney" style="color: #e93b3d; font-size: 1.2em;">￥0.00</span>
 				</div>
@@ -144,8 +152,24 @@
 				结算
 			</div>
 		</div>
-		
+		<div class="zhifubao">
+			<div style="text-align: center;border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;padding-top: 15px;font-size: 1.2em;"><img src="../imgs/others/close.png" style="float: left;width: 24px;height: 24px;margin-left: 20px;" onclick="javascript:$('.zhifubao').css('bottom','-392px');" />确认付款</div>
+			<div style="text-align: center; font-size: 1.5em; padding-top: 25px; padding-bottom: 25px;">￥66.99</div>
+			<div style="padding: 15px 20px; font-size: 1.1em;border-bottom: 1px solid #E4E4E4;">
+				<span style="color: #8B8B8B;">购物账号</span>
+				<span style="float: right;">123456</span>
+			</div>
+			<div style="padding: 15px 20px; font-size: 1.1em;border-bottom: 1px solid #E4E4E4;">
+				<span style="color: #8B8B8B;">付款方式</span>
+				<span style="float: right;">账户余额</span>
+			</div>
+			<div style="height: 100px;"></div>
+			<div style="height: 65px;">
+				<div id="fukuan" style="background: #1A8EE3; color: white; height: 45px;text-align: center;line-height: 45px;width: 90%;position:relative;left: 5%;border-radius: 5px;">立即付款</div>
+			</div>
+		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			$(document).ready(function(){
@@ -221,6 +245,42 @@
 					$('#items ul').html("");
 					getDataFromLocal();
 				});
+				//结算添加点击事件
+				$('.calc').click(function(){
+					//判断是否登陆
+					if(!localStorage.isLogin){
+						mui.openWindow({
+							url:"login/login.html"
+						})
+					}else{
+						//判断金额
+						var totalMoney = $('#totalMoney').text();
+						if(totalMoney == "￥0.00"){
+							mui.toast("没有选中的商品需要支付");
+						}else{
+							//需要支付
+							//mui.toast(totalMoney);
+							//支付宝支付
+							mui.openWindow({
+								url:"../zhifu.html",
+								styles: {
+									background: 'transparent'
+								},
+								extras:{
+									money:totalMoney
+								}
+							})
+//							$('.zhifubao').css("bottom","0px");
+//							$($('.zhifubao div')[1]).text(totalMoney);
+						}
+					}
+				});
+				//添加返回事件方法
+				window.addEventListener("backUpdateCart",function(){
+					//console.log("back update cart");
+					$('#items ul').html("");
+					getDataFromLocal();
+				})
 			});
 			function getDataFromLocal(){
 				if(localStorage.cart && JSON.parse(localStorage.cart).length > 0){

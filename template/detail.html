@@ -172,6 +172,7 @@
 		<div class="tishi" style="display: none;">加入购物车成功!!!</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery.min.js"></script>
+		<script src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			mui.plusReady(function(){
@@ -180,7 +181,7 @@
 				var obj = {};
 				obj.id = self.itemid;
 				console.log(obj.id);
-		   		$.ajax('http://192.168.1.100:8080/EShopAppServer/item/findById.action',{
+		   		$.ajax(window.SERVER+'/EShopAppServer/item/findById.action',{
                 	data: {id:obj.id},
 					dataType:'json',//服务器返回json格式数据
 					type:'post',//HTTP请求类型
