@@ -186,10 +186,18 @@
 			"js/mui.min.js",
 			"css/mui.min.css",
 			"js/jquery.min.js",
-			"template/detail.html"
+			"template/detail.html",
+			"js/app.js",
+			"template/login/login.html",
+			"imgs/others/zhifubaohead.png",
+			"imgs/others/back.png",
+			"imgs/others/close.png"
 		],
 		"refer": [
-			"template/detail.html"
+			"template/detail.html",
+			"template/login/login.html",
+			"test.html",
+			"zhifu.html"
 		]
 	},
 	"template/sort.html": {
@@ -330,7 +338,8 @@
 			"js/jquery.min.js",
 			"template/detail.html",
 			"main.html",
-			"imgs/others/back.png"
+			"imgs/others/back.png",
+			"js/app.js"
 		],
 		"refer": [
 			"template/sort.html",
@@ -346,7 +355,8 @@
 			"css/mui.min.css",
 			"js/jquery.min.js",
 			"main.html",
-			"imgs/others/back.png"
+			"imgs/others/back.png",
+			"js/app.js"
 		],
 		"refer": [
 			"template/list.html",
@@ -380,6 +390,54 @@
 			"template/sort.html",
 			"template/my.html",
 			"template/home.html"
+		]
+	},
+	"template/login/login.html": {
+		"resources": [
+			"js/app.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/jquery.min.js",
+			"template/login/reg.html",
+			"template/login/forget_password.html",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"template/login/reg.html",
+			"template/login/forget_password.html"
+		]
+	},
+	"template/login/reg.html": {
+		"resources": [
+			"template/login/login.html",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"template/login/login.html"
+		]
+	},
+	"template/login/forget_password.html": {
+		"resources": [
+			"template/login/login.html"
+		],
+		"refer": [
+			"template/login/login.html"
+		]
+	},
+	"test.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"imgs/others/close.png",
+			"js/jquery.min.js"
+		]
+	},
+	"zhifu.html": {
+		"resources": [
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"imgs/others/close.png",
+			"css/mui.min.css"
 		]
 	}
 }

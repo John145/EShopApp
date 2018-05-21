@@ -118,6 +118,7 @@
 		</div>
 		
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			mui.plusReady(function(){
@@ -134,7 +135,7 @@
                 	sort.sort = sort.sort+"女";
                 }
                 console.log(sort.sort);
-		   		$.ajax('http://192.168.1.100:8080/EShopAppServer/item/findBySort.action',{
+		   		$.ajax(window.SERVER+'/EShopAppServer/item/findBySort.action',{
                 	data: {sort:sort.sort},
 					dataType:'json',//服务器返回json格式数据
 					type:'post',//HTTP请求类型
