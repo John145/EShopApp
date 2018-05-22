@@ -152,7 +152,7 @@
 				结算
 			</div>
 		</div>
-		<div class="zhifubao">
+		<div class="zhifubao" style="display: none;">
 			<div style="text-align: center;border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;padding-top: 15px;font-size: 1.2em;"><img src="../imgs/others/close.png" style="float: left;width: 24px;height: 24px;margin-left: 20px;" onclick="javascript:$('.zhifubao').css('bottom','-392px');" />确认付款</div>
 			<div style="text-align: center; font-size: 1.5em; padding-top: 25px; padding-bottom: 25px;">￥66.99</div>
 			<div style="padding: 15px 20px; font-size: 1.1em;border-bottom: 1px solid #E4E4E4;">
@@ -182,6 +182,9 @@
 						$('ul li .section1 input').attr('checked',true);
 						//计算总金额
 						var totalMoney = 0.00;
+						if(!localStorage.cart){
+							return;
+						}
 						var cart = JSON.parse(localStorage.cart);
 						for(var i = 0; i < cart.length;i++){
 							totalMoney += cart[i].item.price * cart[i].count;
@@ -248,7 +251,7 @@
 				//结算添加点击事件
 				$('.calc').click(function(){
 					//判断是否登陆
-					if(!localStorage.isLogin){
+					if(!localStorage.curUser){
 						mui.openWindow({
 							url:"login/login.html"
 						})

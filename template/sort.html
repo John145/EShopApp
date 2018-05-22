@@ -151,10 +151,12 @@
 		
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){
+			mui.plusReady(function(){
 				//计算多余的部分适应界面
-				$('#left').css("height",window.innerHeight - $('#header').height());
-				$('#right').css("height",window.innerHeight - $('#header').height());
+				var screenHeight = plus.screen.resolutionHeight;
+				console.log(screenHeight)
+				$('#left').css("height",screenHeight - $('#header').height());
+				$('#right').css("height",screenHeight - $('#header').height());
 				//添加点击事件
 				$('ul li').click(function(){
 					$('ul li').attr("class","");

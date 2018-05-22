@@ -84,6 +84,13 @@
 			.oauth-area .oauth-btn.disabled {
 				background-color: #ddd;
 			}
+			.error{
+				display: none;
+				text-align: center;
+				color: red;
+				padding: 5px;
+				font-size: 0.8em;
+			}
 		</style>
 
 	</head>
@@ -99,10 +106,12 @@
 					<label>账号</label>
 					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
 				</div>
+				<div class="error">账号不能少于4位</div>
 				<div class="mui-input-row">
 					<label>密码</label>
 					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 				</div>
+				<div class="error">密码不能少于6位</div>
 			</form>
 			<form class="mui-input-group">
 				<ul class="mui-table-view mui-table-view-chevron">
@@ -115,8 +124,8 @@
 				</ul>
 			</form>
 			<div class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-				<div class="link-area"><a href="reg.html" id='reg'>注册账号</a> <span class="spliter">|</span> <a href="forget_password.html" id='forgetPassword'>忘记密码</a>
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary" style="background: #E02E24;border: none;">登录</button>
+				<div class="link-area"><a href="reg.html" id='reg' style="color: #E02E24;">注册账号</a> <span class="spliter">|</span> <a href="forget_password.html" id='forgetPassword' style="color: #E02E24;">忘记密码</a>
 				</div>
 			</div>
 		</div>
@@ -124,24 +133,37 @@
 		<script src="../../js/jquery.min.js"></script>
 		<script>
 			mui.init();
-			mui.plusReady(function(){
+			$(document).ready(function(){
 				$('#login').click(function(){
 					if($('#account').val().length < 4){
 						mui.toast("账号不能少于4位数");
 						return;
 					}
 					if($('#password').val().length < 6){
-						mui.toast("密码不能少于6位数");
+						mui.toast("密码不能少于4位数");
 						return;
 					}
 					if($('#account').val() == 'test' && $('#password').val() == "123456"){
 						mui.toast("登陆成功!");
-						localStorage.isLogin = true; //登陆成功
+						//将用户基本信息存入localStorage
+						var curUser = {
+							username:$('#account').val(),
+							password:$('#password').val()
+						};
+						localStorage.curUser = JSON.stringify(curUser);
 						mui.back();
 					}else{
 						mui.toast("账号或者密码错误");
 					}
 				});
+				//账户输入框输入事件检测
+				$('#account,#password').bind("input propertychange",function(){
+					if($(this).val().length < 4){
+						$(this).parent().next().css("display","block");
+					}else{
+						$(this).parent().next().css("display","none");
+					}
+				})
 			});
 		</script>
 	</body>
