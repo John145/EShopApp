@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "main.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -346,7 +346,8 @@
 					"imgs/sort/zbzb5.jpg",
 					"imgs/sort/nz2.jpg",
 					"template/list.html",
-					"template/detail.html"
+					"template/detail.html",
+					"guide.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -369,7 +370,11 @@
 					"imgs/sort/jjjz4.jpg",
 					"imgs/sort/zbzb4.jpg",
 					"imgs/foods/food5.jpg",
-					"imgs/foods/food4.jpg"
+					"imgs/foods/food4.jpg",
+					"imgs/newcommidities/jiu01.jpg",
+					"imgs/newcommidities/hat01.jpg",
+					"imgs/newcommidities/camer1.jpg",
+					"imgs/newcommidities/watch1.jpg"
 				],
 				"refer": [],
 				"priority": 0
@@ -520,7 +525,15 @@
 					"imgs/others/待发货.png",
 					"imgs/others/退款，售后.png",
 					"imgs/others/待收货.png",
-					"imgs/others/待付款.png"
+					"imgs/others/待付款.png",
+					"imgs/others/refund.png",
+					"imgs/others/unpaid.png",
+					"imgs/others/bg01.jpg",
+					"imgs/others/pic_default1.png",
+					"imgs/others/dfh.png",
+					"imgs/others/dpj.png",
+					"imgs/others/dsh.png",
+					"js/jquery.min.js"
 				],
 				"refer": [],
 				"priority": 0

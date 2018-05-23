@@ -149,7 +149,12 @@
       "imgs/sort/zbzb5.jpg",
       "imgs/sort/nz2.jpg",
       "template/list.html",
+<<<<<<< HEAD
       "template/detail.html"
+=======
+      "template/detail.html",
+      "guide.html"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
     ],
     "refer": [
       "template/home.html",
@@ -157,7 +162,12 @@
       "template/cart.html",
       "template/my.html",
       "template/list.html",
+<<<<<<< HEAD
       "template/detail.html"
+=======
+      "template/detail.html",
+      "guide.html"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
     ]
   },
   "template/home.html": {
@@ -178,7 +188,15 @@
       "imgs/sort/jjjz4.jpg",
       "imgs/sort/zbzb4.jpg",
       "imgs/foods/food5.jpg",
+<<<<<<< HEAD
       "imgs/foods/food4.jpg"
+=======
+      "imgs/foods/food4.jpg",
+      "imgs/newcommidities/jiu01.jpg",
+      "imgs/newcommidities/hat01.jpg",
+      "imgs/newcommidities/camer1.jpg",
+      "imgs/newcommidities/watch1.jpg"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
     ]
   },
   "template/cart.html": {
@@ -325,11 +343,27 @@
     "resources": [
       "js/mui.min.js",
       "css/mui.min.css",
+<<<<<<< HEAD
       "imgs/others/ýýý.png",
       "imgs/others/ýý\u0027.png",
       "imgs/others/\u0000\u003e\f.\u000e.png",
       "imgs/others/ý6\u0027.png",
       "imgs/others/ýý\u003e.png"
+=======
+      "imgs/others/…Ä÷.png",
+      "imgs/others/…Ñ'.png",
+      "imgs/others/ >..png",
+      "imgs/others/…6'.png",
+      "imgs/others/…Ø>.png",
+      "imgs/others/refund.png",
+      "imgs/others/unpaid.png",
+      "imgs/others/bg01.jpg",
+      "imgs/others/pic_default1.png",
+      "imgs/others/dfh.png",
+      "imgs/others/dpj.png",
+      "imgs/others/dsh.png",
+      "js/jquery.min.js"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
     ]
   },
   "template/list.html": {

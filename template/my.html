@@ -10,7 +10,7 @@
 			.header{
 				width: 100%;
 				height: 200px;
-				background: url(../imgs/others/bg01.jpg);
+				background: #E02E24;
 			}
 			.tubiao{
 				position: relative;
@@ -84,6 +84,9 @@
 				font-weight: 400;
 				float: left;
 			}
+			.userbehavior li:active{
+				background: #CCC;
+			}
 			.userbehavior p{
 				text-align: center;
 				font-size: 16px;
@@ -120,6 +123,21 @@
 				font-size: 14px;
 				margin-right: 8px;
 			}
+			.msgCount{
+				color: red;
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				border: 1px solid red;
+				display: block;
+				width: 18px;
+				height: 18px;
+				background: coral;
+				text-align: center;
+				color: white;
+				border-radius: 50%;
+				line-height: 18px;
+			}
 		</style>
 	</head>
 
@@ -129,7 +147,7 @@
 				<img class="mui-icon-image" src="../imgs/others/pic_default1.png" style=""/>
 			</div>
 			<div class="username">
-				<span class="name">酷肖2016</span>
+				<span class="name" id="username">未登录</span>
 			</div>
 		</div>
 		
@@ -175,7 +193,10 @@
 				</li>
 				<li>
 					<a href="#">
-						<p><img src="../imgs/others/dfh.png" /></p>
+						<p style="position: relative;">
+							<img src="../imgs/others/dfh.png" />
+							<span class="msgCount">2</span>
+						</p>
 						<p>待发货</p>
 					</a>
 				</li>
@@ -202,8 +223,16 @@
 		<div class="margin-bottom"></div>
 		
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			$(document).ready(function(){
+				console.log("my ready");
+				if(localStorage.curUser){
+					var curUser = JSON.parse(localStorage.curUser);
+					$('#username').text(curUser.username);	
+				}
+			});
 		</script>
 	</body>
 
