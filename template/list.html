@@ -82,6 +82,9 @@
 				color: #CCC;
 				margin-top: 50%;
 			}
+			#header{
+				height: 55px;
+			}
 		</style>
 	</head>
 
@@ -92,10 +95,7 @@
 		        	<a style="color: white; line-height: 50px; margin-left: 20px;" href="#" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		        </div>
 		        <div class="col60">
-		        	<input style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
-		        </div>
-		        <div class="col20">
-		        	<a class="white" href="#">搜索</a>
+		        	<input id="keyword" style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
 		        </div>
 		    </div>
 			
@@ -172,6 +172,12 @@
 						console.log(type);
 					}
 				});
+				//keyword输入添加点击事件
+				$('#keyword').click(function(){
+					mui.openWindow({
+						url:"search.html"
+					});
+				})
 			});
 		</script>
 	</body>

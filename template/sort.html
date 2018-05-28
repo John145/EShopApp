@@ -99,10 +99,7 @@
 		        	<a class="white" href="#"><img style="width: 32px; height: 32px; position: relative; top: 11.5px;" src="../imgs/others/saoma.png"/></a>
 		        </div>
 		        <div class="col60">
-		        	<input style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
-		        </div>
-		        <div class="col20">
-		        	<a class="white" href="#">搜索</a>
+		        	<input id="search" style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
 		        </div>
 		    </div>
 		    
@@ -247,6 +244,12 @@
 							head:head,
 							sort:sort
 						}
+					});
+				});
+				//搜索框添加点击事件
+				$('#search').click(function(){
+					mui.openWindow({
+						url:'search.html'
 					});
 				});
 			});

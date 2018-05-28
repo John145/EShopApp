@@ -145,7 +145,7 @@
 				<input type="checkbox" />全选
 				<div style="float: right; margin-right: 10px; height: 50px;">
 					<span>合计</span>
-					<span id="totalMoney" style="color: #e93b3d; font-size: 1.2em;">￥0.00</span>
+					￥<span id="totalMoney" style="color: #e93b3d; font-size: 1.2em;">0</span>
 				</div>
 			</div>
 			<div class="calc">
@@ -181,7 +181,7 @@
 					if($('.select input').attr('checked')){
 						$('ul li .section1 input').attr('checked',true);
 						//计算总金额
-						var totalMoney = 0.00;
+						var totalMoney = 0;
 						if(!localStorage.cart){
 							return;
 						}
@@ -189,10 +189,10 @@
 						for(var i = 0; i < cart.length;i++){
 							totalMoney += cart[i].item.price * cart[i].count;
 						}
-						$('#totalMoney').text('￥'+totalMoney);
+						$('#totalMoney').text(totalMoney);
 					}else{
 						$('ul li .section1 input').attr('checked',false);
-						$('#totalMoney').text('￥0.00');
+						$('#totalMoney').text('0');
 					}
 				});
 				//给每个li添加点击事件
@@ -302,6 +302,8 @@
 					}
 				}else{
 					$('#items').html('<div class="hint">购物车为空</div>');
+					//去掉头部的manager按钮
+					$('#manager').remove();
 				}
 				$('ul').width(window.innerWidth);
 				$('ul').height(window.innerHeight - $('header').height() - $('.bottom').height());

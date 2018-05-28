@@ -376,9 +376,12 @@
 					"imgs/newcommidities/jiu01.jpg",
 					"imgs/newcommidities/hat01.jpg",
 					"imgs/newcommidities/camer1.jpg",
-					"imgs/newcommidities/watch1.jpg"
+					"imgs/newcommidities/watch1.jpg",
+					"js/jquery.min.js"
 				],
-				"refer": [],
+				"refer": [
+					"template/search.html"
+				],
 				"priority": 0
 			},
 			"template/cart.html": {
@@ -516,7 +519,9 @@
 					"imgs/sort/zbzb5.jpg",
 					"imgs/others/saoma.png"
 				],
-				"refer": [],
+				"refer": [
+					"template/search.html"
+				],
 				"priority": 0
 			},
 			"template/my.html": {
@@ -554,7 +559,9 @@
 					"imgs/others/back.png",
 					"js/app.js"
 				],
-				"refer": [],
+				"refer": [
+					"template/search.html"
+				],
 				"priority": 0
 			},
 			"template/detail.html": {
@@ -642,6 +649,16 @@
 					"js/jquery.min.js",
 					"js/mui.min.js",
 					"imgs/others/close.png",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"template/search.html": {
+				"resources": [
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
 					"css/mui.min.css"
 				],
 				"refer": [],
