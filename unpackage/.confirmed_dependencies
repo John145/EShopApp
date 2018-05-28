@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"index.html": {
 		"resources": [
 			"js/mui.min.js",
@@ -473,4 +474,486 @@
 			"css/mui.min.css"
 		]
 	}
+=======
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "imgs/guide/img1.jpg",
+      "imgs/guide/img2.jpg",
+      "js/jquery.min.js",
+      "imgs/guide/img3.jpg",
+      "imgs/guide/img4.jpg",
+      "main.html",
+      "guide.html",
+      "main1.html"
+    ],
+    "refer": [
+      "main.html",
+      "guide.html",
+      "main1.html"
+    ]
+  },
+  "main.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "template/home.html",
+      "imgs/sort/sjsm6.jpg",
+      "imgs/sort/mytz2.jpg",
+      "imgs/sort/ydhw1.jpg",
+      "imgs/sort/wjyq2.jpg",
+      "imgs/sort/nvx2.jpg",
+      "imgs/sort/ydhw2.jpg",
+      "imgs/sort/dnbg5.jpg",
+      "imgs/sort/tsyx1.jpg",
+      "imgs/sort/dnbg1.jpg",
+      "imgs/sort/mytz4.jpg",
+      "imgs/sort/nz5.jpg",
+      "imgs/sort/jsyl1.jpg",
+      "imgs/sort/nvz7.jpg",
+      "imgs/sort/mytz3.jpg",
+      "imgs/15.png",
+      "imgs/sort/sjsm2.jpg",
+      "imgs/sort/nvz1.jpg",
+      "imgs/others/saoma.png",
+      "imgs/sort/nvx7.jpg",
+      "fonts/mui.ttf",
+      "imgs/sort/nyps4.jpg",
+      "imgs/foods/food6.jpg",
+      "imgs/sort/ydhw6.jpg",
+      "imgs/sort/zbzb4.jpg",
+      "imgs/sort/mytz5.jpg",
+      "imgs/sort/nyps3.jpg",
+      "imgs/sort/yybj2.jpg",
+      "imgs/sort/ydhw4.jpg",
+      "imgs/sort/jjjz1.jpg",
+      "template/my.html",
+      "imgs/sort/nvx5.jpg",
+      "imgs/sort/nyps1.jpg",
+      "imgs/sort/xbsd2.jpg",
+      "imgs/sort/dnbg6.jpg",
+      "imgs/sort/tsyx3.jpg",
+      "imgs/sort/nx2.jpg",
+      "imgs/sort/nvx4.jpg",
+      "imgs/sort/nyps6.jpg",
+      "imgs/sort/nz7.jpg",
+      "imgs/sort/nvx10.jpg",
+      "imgs/sort/wjyq4.jpg",
+      "imgs/sort/nx1.jpg",
+      "imgs/sort/nvx1.jpg",
+      "imgs/sort/mytz6.jpg",
+      "imgs/sort/jsyl4.jpg",
+      "imgs/sort/dnbg3.jpg",
+      "imgs/sort/ydhw3.jpg",
+      "imgs/sort/nx3.jpg",
+      "imgs/sort/sjsm3.jpg",
+      "imgs/sort/jjjz5.jpg",
+      "imgs/sort/dnbg2.jpg",
+      "imgs/sort/spsx2.jpg",
+      "imgs/sort/jjjz4.jpg",
+      "imgs/sort/nyps2.jpg",
+      "imgs/sort/zbzb3.jpg",
+      "imgs/sort/sjsm1.jpg",
+      "imgs/sort/zbzb2.jpg",
+      "imgs/sort/xbsd3.jpg",
+      "imgs/sort/spsx4.jpg",
+      "imgs/sort/spsx5.jpg",
+      "imgs/sort/nvx9.jpg",
+      "imgs/sort/nz8.jpg",
+      "imgs/sort/nvz9.jpg",
+      "imgs/sort/zbzb6.jpg",
+      "imgs/sort/nz6.jpg",
+      "imgs/sort/spsx1.jpg",
+      "imgs/sort/nyps5.jpg",
+      "imgs/slider/slider2.jpg",
+      "imgs/sort/yybj1.jpg",
+      "imgs/sort/nvz5.jpg",
+      "imgs/sort/yybj3.jpg",
+      "imgs/sort/jsyl5.jpg",
+      "imgs/sort/nvz8.jpg",
+      "imgs/sort/nvz2.jpg",
+      "imgs/sort/jsyl6.jpg",
+      "imgs/sort/mytz1.jpg",
+      "imgs/sort/nz9.jpg",
+      "imgs/sort/nvx11.jpg",
+      "imgs/sort/nvx12.jpg",
+      "imgs/sort/nx4.jpg",
+      "imgs/sort/wjyq3.jpg",
+      "template/sort.html",
+      "imgs/sort/spsx3.jpg",
+      "imgs/sort/nz4.jpg",
+      "imgs/sort/jsyl3.jpg",
+      "imgs/sort/nvz6.jpg",
+      "imgs/sort/nvx8.jpg",
+      "imgs/sort/jsyl2.jpg",
+      "imgs/sort/spsx6.jpg",
+      "imgs/sort/nvx3.jpg",
+      "imgs/foods/food2.jpg",
+      "imgs/foods/food1.jpg",
+      "imgs/sort/sjsm7.jpg",
+      "imgs/sort/nx6.jpg",
+      "imgs/sort/nx5.jpg",
+      "imgs/sort/jjjz6.jpg",
+      "imgs/sort/nvz3.jpg",
+      "imgs/foods/food5.jpg",
+      "imgs/sort/ydhw5.jpg",
+      "template/cart.html",
+      "imgs/sort/sjsm8.jpg",
+      "imgs/sort/wjyq1.jpg",
+      "imgs/sort/dnbg4.jpg",
+      "imgs/sort/xbsd1.jpg",
+      "imgs/foods/food4.jpg",
+      "imgs/sort/jjjz3.jpg",
+      "imgs/sort/zbzb1.jpg",
+      "imgs/slider/slider1.jpg",
+      "imgs/sort/sjsm9.jpg",
+      "imgs/sort/nz3.jpg",
+      "imgs/foods/food7.jpg",
+      "js/jquery.min.js",
+      "imgs/sort/wjyq5.jpg",
+      "imgs/sort/tsyx2.jpg",
+      "imgs/sort/nvz4.jpg",
+      "imgs/sort/jjjz2.jpg",
+      "imgs/slider/slider3.jpg",
+      "imgs/sort/sjsm4.jpg",
+      "imgs/sort/nz1.jpg",
+      "imgs/sort/nvx6.jpg",
+      "imgs/sort/sjsm5.jpg",
+      "imgs/sort/wjyq6.jpg",
+      "imgs/sort/zbzb5.jpg",
+      "imgs/sort/nz2.jpg",
+      "template/list.html",
+<<<<<<< HEAD
+      "template/detail.html"
+=======
+      "template/detail.html",
+      "guide.html"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
+    ],
+    "refer": [
+      "template/home.html",
+      "template/sort.html",
+      "template/cart.html",
+      "template/my.html",
+      "template/list.html",
+<<<<<<< HEAD
+      "template/detail.html"
+=======
+      "template/detail.html",
+      "guide.html"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
+    ]
+  },
+  "template/home.html": {
+    "resources": [
+      "imgs/slider/slider3.jpg",
+      "imgs/slider/slider2.jpg",
+      "fonts/mui.ttf",
+      "imgs/slider/slider1.jpg",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "imgs/sort/jsyl4.jpg",
+      "imgs/sort/nz3.jpg",
+      "imgs/foods/food7.jpg",
+      "imgs/15.png",
+      "imgs/foods/food2.jpg",
+      "imgs/foods/food1.jpg",
+      "imgs/foods/food6.jpg",
+      "imgs/sort/jjjz4.jpg",
+      "imgs/sort/zbzb4.jpg",
+      "imgs/foods/food5.jpg",
+<<<<<<< HEAD
+      "imgs/foods/food4.jpg"
+=======
+      "imgs/foods/food4.jpg",
+      "imgs/newcommidities/jiu01.jpg",
+      "imgs/newcommidities/hat01.jpg",
+      "imgs/newcommidities/camer1.jpg",
+      "imgs/newcommidities/watch1.jpg"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
+    ]
+  },
+  "template/cart.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/jquery.min.js",
+      "template/detail.html",
+      "js/app.js",
+      "template/login/login.html",
+      "imgs/others/zhifubaohead.png",
+      "imgs/others/back.png",
+      "imgs/others/close.png"
+    ],
+    "refer": [
+      "template/detail.html",
+      "template/login/login.html",
+      "test.html",
+      "zhifu.html"
+    ]
+  },
+  "template/sort.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/jquery.min.js",
+      "imgs/sort/nz1.jpg",
+      "imgs/sort/nz3.jpg",
+      "imgs/sort/nz5.jpg",
+      "imgs/sort/nz4.jpg",
+      "imgs/sort/nz6.jpg",
+      "imgs/sort/nz2.jpg",
+      "imgs/sort/nz8.jpg",
+      "imgs/sort/nz9.jpg",
+      "imgs/sort/nz7.jpg",
+      "imgs/sort/nvz7.jpg",
+      "imgs/sort/nvz1.jpg",
+      "imgs/sort/nx4.jpg",
+      "imgs/sort/nx3.jpg",
+      "imgs/sort/nvz9.jpg",
+      "imgs/sort/nx6.jpg",
+      "imgs/sort/nx2.jpg",
+      "imgs/sort/nx5.jpg",
+      "imgs/sort/nvz4.jpg",
+      "imgs/sort/nvz3.jpg",
+      "imgs/sort/nvz5.jpg",
+      "imgs/sort/nvz8.jpg",
+      "imgs/sort/nx1.jpg",
+      "imgs/sort/nvz2.jpg",
+      "imgs/sort/nvz6.jpg",
+      "imgs/sort/nvx3.jpg",
+      "imgs/sort/nvx2.jpg",
+      "imgs/sort/nvx4.jpg",
+      "imgs/sort/nvx1.jpg",
+      "imgs/sort/nvx7.jpg",
+      "imgs/sort/nvx6.jpg",
+      "imgs/sort/nvx9.jpg",
+      "imgs/sort/nvx5.jpg",
+      "imgs/sort/nvx8.jpg",
+      "template/list.html",
+      "imgs/sort/sjsm6.jpg",
+      "imgs/sort/mytz2.jpg",
+      "imgs/sort/ydhw1.jpg",
+      "imgs/sort/wjyq2.jpg",
+      "imgs/sort/ydhw2.jpg",
+      "imgs/sort/dnbg5.jpg",
+      "imgs/sort/tsyx1.jpg",
+      "imgs/sort/dnbg1.jpg",
+      "imgs/sort/mytz4.jpg",
+      "imgs/sort/jsyl1.jpg",
+      "imgs/sort/mytz3.jpg",
+      "imgs/sort/sjsm2.jpg",
+      "imgs/sort/nyps4.jpg",
+      "imgs/sort/ydhw6.jpg",
+      "imgs/sort/mytz5.jpg",
+      "imgs/sort/nyps3.jpg",
+      "imgs/sort/zbzb4.jpg",
+      "imgs/sort/yybj2.jpg",
+      "imgs/sort/ydhw4.jpg",
+      "imgs/sort/jjjz1.jpg",
+      "imgs/sort/nyps1.jpg",
+      "imgs/sort/dnbg6.jpg",
+      "imgs/sort/xbsd2.jpg",
+      "imgs/sort/tsyx3.jpg",
+      "imgs/sort/nyps6.jpg",
+      "imgs/sort/nvx10.jpg",
+      "imgs/sort/wjyq4.jpg",
+      "imgs/sort/mytz6.jpg",
+      "imgs/sort/jsyl4.jpg",
+      "imgs/sort/dnbg3.jpg",
+      "imgs/sort/ydhw3.jpg",
+      "imgs/sort/sjsm3.jpg",
+      "imgs/sort/dnbg2.jpg",
+      "imgs/sort/jjjz5.jpg",
+      "imgs/sort/spsx2.jpg",
+      "imgs/sort/jjjz4.jpg",
+      "imgs/sort/nyps2.jpg",
+      "imgs/sort/sjsm1.jpg",
+      "imgs/sort/zbzb3.jpg",
+      "imgs/sort/xbsd3.jpg",
+      "imgs/sort/zbzb2.jpg",
+      "imgs/sort/spsx4.jpg",
+      "imgs/sort/spsx5.jpg",
+      "imgs/sort/zbzb6.jpg",
+      "imgs/sort/spsx1.jpg",
+      "imgs/sort/nyps5.jpg",
+      "imgs/sort/yybj1.jpg",
+      "imgs/sort/yybj3.jpg",
+      "imgs/sort/jsyl5.jpg",
+      "imgs/sort/jsyl6.jpg",
+      "imgs/sort/mytz1.jpg",
+      "imgs/sort/nvx11.jpg",
+      "imgs/sort/nvx12.jpg",
+      "imgs/sort/wjyq3.jpg",
+      "imgs/sort/spsx3.jpg",
+      "imgs/sort/jsyl3.jpg",
+      "imgs/sort/spsx6.jpg",
+      "imgs/sort/jsyl2.jpg",
+      "imgs/sort/sjsm7.jpg",
+      "imgs/sort/jjjz6.jpg",
+      "imgs/sort/ydhw5.jpg",
+      "imgs/sort/sjsm8.jpg",
+      "imgs/sort/wjyq1.jpg",
+      "imgs/sort/dnbg4.jpg",
+      "imgs/sort/xbsd1.jpg",
+      "imgs/sort/jjjz3.jpg",
+      "imgs/sort/sjsm9.jpg",
+      "imgs/sort/zbzb1.jpg",
+      "imgs/sort/wjyq5.jpg",
+      "imgs/sort/tsyx2.jpg",
+      "imgs/sort/jjjz2.jpg",
+      "imgs/sort/sjsm4.jpg",
+      "imgs/sort/sjsm5.jpg",
+      "imgs/sort/wjyq6.jpg",
+      "imgs/sort/zbzb5.jpg",
+      "imgs/others/saoma.png"
+    ],
+    "refer": [
+      "template/list.html"
+    ]
+  },
+  "template/my.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+<<<<<<< HEAD
+      "imgs/others/ýýý.png",
+      "imgs/others/ýý\u0027.png",
+      "imgs/others/\u0000\u003e\f.\u000e.png",
+      "imgs/others/ý6\u0027.png",
+      "imgs/others/ýý\u003e.png"
+=======
+      "imgs/others/…Ä÷.png",
+      "imgs/others/…Ñ'.png",
+      "imgs/others/ >..png",
+      "imgs/others/…6'.png",
+      "imgs/others/…Ø>.png",
+      "imgs/others/refund.png",
+      "imgs/others/unpaid.png",
+      "imgs/others/bg01.jpg",
+      "imgs/others/pic_default1.png",
+      "imgs/others/dfh.png",
+      "imgs/others/dpj.png",
+      "imgs/others/dsh.png",
+      "js/jquery.min.js"
+>>>>>>> ae0978082f92d3a4c3e1d9b39977f8bc57402c44
+    ]
+  },
+  "template/list.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "template/sort.html",
+      "imgs/sort/nvz1.jpg",
+      "imgs/sort/nvz2.jpg",
+      "js/jquery.min.js",
+      "template/detail.html",
+      "main.html",
+      "imgs/others/back.png",
+      "js/app.js"
+    ],
+    "refer": [
+      "template/sort.html",
+      "template/detail.html",
+      "main.html"
+    ]
+  },
+  "template/detail.html": {
+    "resources": [
+      "template/list.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/jquery.min.js",
+      "main.html",
+      "imgs/others/back.png",
+      "js/app.js"
+    ],
+    "refer": [
+      "template/list.html",
+      "main.html"
+    ]
+  },
+  "guide.html": {
+    "resources": [
+      "imgs/guide/img3.jpg",
+      "main.html",
+      "js/jquery.min.js",
+      "imgs/guide/img1.jpg",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "imgs/guide/img2.jpg",
+      "imgs/guide/img4.jpg"
+    ],
+    "refer": [
+      "main.html"
+    ]
+  },
+  "main1.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/iconfont.css",
+      "template/home.html"
+    ],
+    "refer": [
+      "template/cart.html",
+      "template/sort.html",
+      "template/my.html",
+      "template/home.html"
+    ]
+  },
+  "template/login/login.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/jquery.min.js",
+      "template/login/reg.html",
+      "template/login/forget_password.html",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "template/login/reg.html",
+      "template/login/forget_password.html"
+    ]
+  },
+  "template/login/reg.html": {
+    "resources": [
+      "template/login/login.html",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "template/login/login.html"
+    ]
+  },
+  "template/login/forget_password.html": {
+    "resources": [
+      "template/login/login.html"
+    ],
+    "refer": [
+      "template/login/login.html"
+    ]
+  },
+  "test.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "imgs/others/close.png",
+      "js/jquery.min.js"
+    ]
+  },
+  "zhifu.html": {
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "imgs/others/close.png",
+      "css/mui.min.css"
+    ]
+  }
+>>>>>>> 6b8561fb0d721d86a3ff484812fcff9383deaf0e
 }
