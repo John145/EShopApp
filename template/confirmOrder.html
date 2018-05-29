@@ -85,7 +85,20 @@
 		    <h1 class="mui-title">确认订单</h1>
 		</header>
 		<div class="mui-content bgWhite">
-			
+			<ul id="addressList" style="padding-bottom: 0px;">
+				<li id="data-username" style="padding-bottom: 0px;">
+					<div class="font-32">
+						<label>收货人:</label>
+						<label class="username">陈翔</label>
+						<label class="tel" style="float: right;">15797953928</label>
+					</div>
+					<div class="font-24">
+						<label>收货地址:</label>
+						<label class="username">江西省南昌市经济技术开发区江西财经大学麦庐园校区</label>
+					</div>
+					<hr style="border: 1px solid #ccc;" />
+				</li>
+			</ul>
 		    <ul style="overflow: auto;">
 		    	<li>
 		    		<div class="section2">
@@ -96,6 +109,19 @@
 		    			<div style="margin-top: 10px;"><span style="color: #e93b3d; font-size: 1.2em;">￥899.00</span><span style="float: right; margin-right: 10px;">x1</span></div>
 		    		</div>
 		    	</li>
+		    	<li>
+		    		<div class="section2">
+		    			<img src="https://gw.alicdn.com/bao/uploaded/i4/1695308781/TB24I01X_zGK1JjSspkXXXNUpXa_!!1695308781.jpg_100x100q90s150.jpg_.webp" alt="" />
+		    		</div>
+		    		<div class="section3">
+		    			<div>Meizu/魅族 魅蓝 Note6双摄大屏幕大电池note5升级款学生智能手机</div>
+		    			<div style="margin-top: 10px;"><span style="color: #e93b3d; font-size: 1.2em;">￥899.00</span><span style="float: right; margin-right: 10px;">x1</span></div>
+		    		</div>
+		    	</li>
+		    </ul>
+		    <ul>
+		    	<li>不支持7天无理由退货</li>
+		    	<li>配送方式<span style="float: right;">快递包邮 ></span></li>
 		    </ul>
 		    <div class="bottom">
 				<div class="select">
@@ -113,6 +139,19 @@
 		<script src="../js/jquery.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			mui.plusReady(function(){
+				$('.confim').click(function(){
+					mui.openWindow({
+						url:"../zhifu.html",
+						styles: {
+							background: 'transparent'
+						},
+						extras:{
+							money:100.2
+						}
+					})
+				})
+			})
 		</script>
 	</body>
 
