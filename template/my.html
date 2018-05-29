@@ -236,7 +236,7 @@
 		</div>
 		<div class="margin-bottom"></div>
 		<div class="myOrders">
-			<a href="address.html">
+			<a class="address">
 				<div class="title"><p>我的收货地址<p></div>
 				<div class="sub"><p>地址管理 ><p></div>
 			</a>
@@ -246,12 +246,17 @@
 		<script src="../js/jquery.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
-			$(document).ready(function(){
+			mui.plusReady(function(){
 				console.log("my ready");
 				if(localStorage.curUser){
 					var curUser = JSON.parse(localStorage.curUser);
 					$('#username').text(curUser.username);	
 				}
+				$('.address').click(function(){
+					mui.openWindow({
+						url:"address.html"
+					})
+				});
 			});
 		</script>
 	</body>
