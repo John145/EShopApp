@@ -6,6 +6,9 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/app.js"></script>
 		<style type="text/css">
 			* {
 				margin: 0;
@@ -45,9 +48,13 @@
 				text-align: center;
 				color: black;
 			}
+			.foodItems{
+				
+			}
 			.foodItem{
-				width: 33%;
+				width: 33.333%;
 				float: left;
+				margin-bottom: 2em;
 			}
 			.foodItem p{
 				text-overflow: ellipsis;
@@ -66,7 +73,7 @@
 				margin: 0;
 			}
 			.foodItem img{
-				width: 80%;
+				width: 100%;
 			}
 			.bottom{
 				text-align: center;
@@ -166,7 +173,7 @@
 				<div class="idx-hL">&nbsp;</div>
 				<div class="idx-hC">
 					<span class="mui-icon mui-icon-search idx-seaIcon"></span>
-					<input type="text" class="idx-ipt" maxlength="18" placeholder="搜索商品"/>
+					<input id="keyword" type="text" class="idx-ipt" maxlength="18" placeholder="搜索商品"/>
 				</div>
 				<div class="idx-hR">&nbsp;</div>
 			</div>
@@ -211,81 +218,96 @@
 					<a>更多></a>
 				</div>
 				<div id="wrap">
-					<a onclick="">
-						<div class="item">
-							<img src="../imgs/newcommidities/camer1.jpg" />
-							<p></p>
-						</div>
-					</a>
-					<a onclick="">
-						<div class="item">
-							<img src="../imgs/newcommidities/hat01.jpg" />
-							<p></p>
-						</div>
-					</a>
-					<hr style="border: 2.5px solid #EFEFF4;" />
-					<a onclick="">
-						<div class="item">
-							<img src="../imgs/newcommidities/jiu01.jpg" />
-							<p></p>
-						</div>
-					</a>
-					<a onclick="">
-						<div class="item">
-							<img src="../imgs/newcommidities/watch1.jpg" />
-							<p></p>
-						</div>
-					</a>
 				</div>
 			</div>
 			<div id="food">
 				<div class="ptitle">
-					<div>食品百味</div>
+					<div>猜你喜欢</div>
 					<a>更多></a>
 				</div>
 				<div class="foodItems" style="background: white;">
-					<div class="foodItem">
+					<!--<div class="foodItem">
 						<p class="foodname">惠农神星 小鸭腿250g*2袋</p>
 						<p class="foodprice">￥34.00</p>
 						<img src="../imgs/foods/food1.jpg" />
-					</div>
-					<div class="foodItem">
-						<p class="foodname">竹笋牛肉+香菇牛肉酱</p>
-						<p class="foodprice">￥44.00</p>
-						<img src="../imgs/foods/food2.jpg" />
-					</div>
-					<div class="foodItem">
-						<p class="foodname">丹麦曲奇饼干</p>
-						<p class="foodprice">￥15.00</p>
-						<img src="../imgs/foods/food4.jpg" />
-					</div>
-					<div class="foodItem">
-						<p class="foodname">综合坚果仁250g</p>
-						<p class="foodprice">￥15.00</p>
-						<img src="../imgs/foods/food5.jpg" />
-					</div>
-					<div class="foodItem">
-						<p class="foodname">统一 汤达人</p>
-						<p class="foodprice">￥8.00</p>
-						<img src="../imgs/foods/food6.jpg" />
-					</div>
-					<div class="foodItem">
-						<p class="foodname">每日粗粮1500g家庭装</p>
-						<p class="foodprice">￥29.00</p>
-						<img src="../imgs/foods/food7.jpg" />
-					</div>
+					</div>-->
 				</div>
 			</div>
 
 		</div>
-		<div class="bottom">人家是有底线的</div>
-		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			var gallery = mui('.mui-slider');
 			gallery.slider({
 				interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
 			});
+			mui.plusReady(function(){
+				//循环获取主界面四个图片
+				for(var i = 0; i < 4;i++){
+					$.ajax({
+						type:"post",
+						url:window.SERVER+'/EShopAppServer/item/findById.action',
+						dataType:'json',//服务器返回json格式数据
+						data:{id:GetRandomNum(334,1333)},
+						success:function(data){
+							var item = $('<div class="item" itemId="'+
+							data.id+'"><img src="'+
+							data.img+'" /><p></p></div>');
+							$('#wrap').append(item)
+							//给item添加点击事件
+							$(item).click(function(){
+								var itemid = $(this).attr('itemid');
+								mui.openWindow({
+									url:'detail.html',
+									extras:{
+										itemid:itemid
+									}
+								});
+							});
+						}
+					});
+				}
+				//keyword输入添加点击事件
+				$('#keyword').click(function(){
+					mui.openWindow({
+						url:"search.html"
+					});
+				})
+				var foodItems = $(".foodItems");
+				console.log(GetRandomNum(334,1333))
+				for(var i = 0; i < 12;i++){
+					$.ajax(window.SERVER+'/EShopAppServer/item/findById.action',{
+						//334-1333
+						data:{id:GetRandomNum(334,1333)},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						success:function(data){
+							var foodItem = $('<div class="foodItem" itemId="'+
+							data.id+'"><img src="'+
+							data.img+'" /><p class="foodname">'+
+							data.name+'</p><p class="foodprice">￥'+
+							data.price+'</p></div>');
+							foodItems.append(foodItem);
+							//给每一个foodItem添加点击事件
+							$(foodItem).click(function(){
+								var itemid = $(this).attr('itemid');
+								mui.openWindow({
+									url:'detail.html',
+									extras:{
+										itemid:itemid
+									}
+								});
+							})
+						}
+					});
+				}
+			})
+			function GetRandomNum(Min,Max)
+			{   
+				var Range = Max - Min;   
+				var Rand = Math.random();   
+				return (Min + Math.round(Rand * Range));   
+			} 
 		</script>
 	</body>
 

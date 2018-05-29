@@ -41,6 +41,11 @@
 				clear: both;
 				display: block;
 			}
+			.clearFloat:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
 		</style>
 	</head>
 
@@ -52,32 +57,108 @@
 	        <div class="col60">
 	        	<input id="keyword" style="margin-top: 8px; margin-bottom: 0px;" type="text" placeholder="搜索商品"/>
 	        </div>
-	        <div class="col20">
+	        <div class="col20" id="search">
 	        	<a class="white" href="#">搜索</a>
 	        </div>
 	    </div>
 		<div class="mui-content bgWhite" style="padding: 0.5em;">
-			<div style="margin-bottom: 1em;">
-				<span>历史记录</span>
-				<a style="float: right;">清空</a>
+			<div id="his" style="margin-bottom: 20px;">
+				
 			</div>
 			<div>
-				<span class="history">T恤夏季</span>
-			    <span class="history">夏季运动鞋</span>
-			    <span class="history">零食</span>
-			    <span class="history">手机壳</span><span class="history">T恤夏季</span>
-			    <span class="history">运动鞋</span>
-			    <span class="history">零食</span>
-			    <span class="history">手机壳</span>
+				<div style="margin-bottom: 1em;">
+					<span>热门搜索</span>
+				</div>
+				<div class="clearFloat">
+					<span class="history">T恤</span>
+				    <span class="history">夹克</span>
+				    <span class="history">休闲零食</span>
+				    <span class="history">白酒</span>
+				    <span class="history">奶粉</span>
+				    <span class="history">跑步鞋</span>
+				    <span class="history">牛奶</span>
+				    <span class="history">啤酒</span>
+				</div>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery.min.js"></script>
 		<script type="text/javascript">
-			$(function(){
-				$('#keyword').focus();
-			});
 			mui.init()
+			mui.plusReady(function(){
+				$('#keyword').focus();
+				//从local获取historys
+				if(!localStorage.historys){
+					localStorage.historys = JSON.stringify([]);
+				}else if(JSON.parse(localStorage.historys).length > 0){
+					getHisFromLocal();
+				}
+				//搜索事件
+				$('#search').click(function(){
+					var keyword = $('#keyword').val();
+					if(keyword == ""){
+						mui.toast("搜索不能为空!!!");
+						return;
+					}
+					var his = JSON.parse(localStorage.historys);
+					console.log(keyword)
+					//对搜索记录仪进行判断是否存在，存在就排到前面，不存在就添加
+					var flag = true;
+					for(var i = 0; i < his.length; i++){
+						if(keyword == his[i]){
+							for(var j = i;j > 0;j--){
+								var tmp = his[j-1];
+								his[j-1]=his[j];
+								his[j]=tmp;
+							}
+							flag = false;
+							break;
+						}
+					}
+					if(flag){
+						his.unshift(keyword);
+					}
+					localStorage.historys = JSON.stringify(his);
+					//重新获取历史记录
+					getHisFromLocal();
+					
+					//跳转页面
+					mui.openWindow({
+						url:"list.html",
+						extras:{
+							head:"",
+							sort:keyword
+						}
+					})
+				})
+			});
+			function getHisFromLocal(){
+				//清空界面
+				$('#his').html("");
+				var historys = JSON.parse(localStorage.historys);
+				if(historys.length > 0){
+					$('#his').append('<div style="margin-bottom: 1em;"><span>历史记录</span><a onclick="clearHis()" style="float: right;">清空</a></div>');
+					$('#his').append('<div class="clearFloat"></div>');
+					for(var i = 0; i < historys.length;i++){
+						var tmp = $('<span class="history">'+historys[i]+'</span>');
+						$($('#his div')[1]).append(tmp);
+					}
+				}
+				//为每一个添加history class点击事件
+				$('.history').click(function(){
+					mui.openWindow({
+						url:"list.html",
+						extras:{
+							head:"",
+							sort:this.innerHTML
+						}
+					})
+				})
+			}
+			function clearHis(){
+				localStorage.historys = JSON.stringify([]);
+				getHisFromLocal();
+			}
 		</script>
 	</body>
 
