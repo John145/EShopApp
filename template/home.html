@@ -166,7 +166,7 @@
 				<div class="idx-hL">&nbsp;</div>
 				<div class="idx-hC">
 					<span class="mui-icon mui-icon-search idx-seaIcon"></span>
-					<input id="keyword" type="text" class="idx-ipt" maxlength="18" placeholder="搜索商品"/>
+					<input type="text" class="idx-ipt" maxlength="18" placeholder="搜索商品"/>
 				</div>
 				<div class="idx-hR">&nbsp;</div>
 			</div>
@@ -197,6 +197,13 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			
+			
+			
+			
+			
 			<div id="newSP">
 				<div class="mui-visibility"></div>
 				<div class="ptitle">
@@ -273,20 +280,12 @@
 		</div>
 		<div class="bottom">人家是有底线的</div>
 		<script src="../js/mui.min.js"></script>
-		<script src="../js/jquery.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			var gallery = mui('.mui-slider');
 			gallery.slider({
 				interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
 			});
-			mui.plusReady(function(){
-				$('#keyword').click(function(){
-					mui.openWindow({
-						url:"search.html"
-					});
-				})
-			})
 		</script>
 	</body>
 
