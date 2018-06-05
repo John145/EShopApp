@@ -5,6 +5,7 @@
 		<title>地址管理</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/jquery.min.js"></script>
 		<style>
 			body{
 				background:#ffffff; 
@@ -88,14 +89,14 @@
 					</div>
 					<div class="font-24">
 						<label>收货地址:</label>
-						<label class="username">江西省南昌市经济技术开发区江西财经大学麦庐园校区</label>
+						<label class="address">江西省南昌市经济技术开发区江西财经大学麦庐园校区</label>
 					</div>
 					<div class="mui-input-row mui-radio mui-left" style="position: relative;float: left;height: 40px;">
 						<label style="">设为默认</label>
 						<input name="radio1" type="radio">
 					</div>
 					<div class="edit" style="font-size: 20px;line-height: 40px;margin-left:200px;">
-						<a href="#"><span style="text-align: center;"><img src="../imgs/others/edit.png"/>  编辑</span></a>
+						<a class="editAddress"><span style="text-align: center;"><img src="../imgs/others/edit.png"/>  编辑</span></a>
 						<a href="#" style="margin-left: 10px;"><span style="text-align: center;"><img src="../imgs/others/delete1.png"/>  删除</span></a>
 					</div>
 					
@@ -111,8 +112,35 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
+			var username = $('.username').html().trim();
+			var tel = $('.tel').html().trim();
+			var address = $('.address').html().trim();
+			
+			
+			//alert(user['name']);
+			
 			mui.init();
 			
+			var param = {
+				name:username,
+				phone:tel,
+				addr:address
+			};
+			
+			mui.plusReady(function(){
+				console.log("my ready");
+				if(localStorage.curUser){
+					var curUser = JSON.parse(localStorage.curUser);
+					$('#username').text(curUser.username);	
+				}
+				$('.editAddress').click(function(){
+					mui.openWindow({
+						url:"editAddress.html",
+						id:"editAddress.html",
+						extras:param
+					})
+				});
+			});
 		</script>
 	</body>
 </html>

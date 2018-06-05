@@ -154,7 +154,7 @@
 		<div class="userbehavior">
 			<ul>
 				<li>
-					<a>
+					<a class="collection">
 						<p>0</p>
 						<p>收藏夹</p>
 					</a>
@@ -166,7 +166,7 @@
 					</a>
 				</li>
 				<li>
-					<a>
+					<a class="myTrack">
 						<p>08</p>
 						<p>我的足迹</p>
 					</a>
@@ -177,7 +177,7 @@
 		<div class="margin-bottom"></div>
 		
 		<div class="myOrders">
-			<a href="#">
+			<a class="showOrder">
 				<div class="title"><p>我的订单<p></div>
 				<div class="sub"><p>查看全部订单 ><p></div>
 			</a>
@@ -185,14 +185,14 @@
 		
 		<div class="orders">
 			<ul class="orderAct">
-				<li>
-					<a href="#">
+				<li activeId="1">
+					<a class="preparePay">
 						<p><img src="../imgs/others/unpaid.png" /></p>
 						<p>待付款</p>
 					</a>
 				</li>
-				<li>
-					<a href="#">
+				<li activeId="2">
+					<a class="pendingDelivery">
 						<p style="position: relative;">
 							<img src="../imgs/others/dfh.png" />
 							<span class="msgCount">2</span>
@@ -200,14 +200,14 @@
 						<p>待发货</p>
 					</a>
 				</li>
-				<li>
-					<a href="#">
+				<li activeId="3">
+					<a class="dispatched">
 						<p><img src="../imgs/others/dsh.png" /></p>
 						<p>待收货</p>
 					</a>
 				</li>
-				<li>
-					<a href="#">
+				<li activeId="4">
+					<a class="evaluate">
 						<p><img src="../imgs/others/dpj.png" /></p>
 						<p>待评价</p>
 					</a>
@@ -222,7 +222,7 @@
 		</div>
 		<div class="margin-bottom"></div>
 		<div class="myOrders">
-			<a href="#">
+			<a class="myAssess">
 				<div class="title"><p>我的评价<p></div>
 				<div class="sub"><p>查看全部评价 ><p></div>
 			</a>
@@ -257,6 +257,62 @@
 						url:"address.html"
 					})
 				});
+				$('.showOrder').click(function(){
+					mui.openWindow({
+						url:"orders/myOrders.html"
+					})
+				});
+				$('.collection').click(function(){
+					mui.openWindow({
+						url:"collection.html"
+					})
+				});
+				$('.myTrack').click(function(){
+					mui.openWindow({
+						url:"myTrack.html"
+					})
+				});
+				
+				$('.preparePay').click(function(){
+					mui.openWindow({
+						url:"orders/preparePay.html"
+					})
+				});
+				
+				$('.pendingDelivery').click(function(){
+					mui.openWindow({
+						url:"orders/pendingDelivery.html"
+					})
+				});
+				
+				$('.dispatched').click(function(){
+					mui.openWindow({
+						url:"orders/dispatched.html"
+					})
+				});
+				
+				$('.evaluate').click(function(){
+					mui.openWindow({
+						url:"orders/evaluate.html"
+					})
+				});
+				
+				$('.myAssess').click(function(){
+					mui.openWindow({
+						url:"myAssess.html"
+					})
+				});
+				
+				/*$('.orderAct li[activeId]').click(function(){
+					var li = $(this)
+					mui.openWindow({
+						url:"orders/myOrders.html",
+						extras:{
+							activeId:li.attr('activeId')
+						}
+					});
+					
+				});*/
 			});
 		</script>
 	</body>
