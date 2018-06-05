@@ -262,15 +262,34 @@
 						mui.openWindow({
 							url:"login/login.html"
 						})
-					}else{
+					}else if(JSON.parse(localStorage.curUser).addresses != null){
 						//判断金额
 						var totalMoney = $('#totalMoney').text();
 						if(totalMoney == 0){
 							mui.toast("没有选中的商品需要结算");
 						}else{
+							//先清空购物车，生成相应的订单
+							var cart = JSON.parse(localStorage.cart);
+							var order = {
+								cart: cart,
+								//1表示未付款,2表示已付款，3表示待收货，4待评价，5退款售后
+								status: 1
+							};
+							var orders = [];
+							orders.push(order);
+							localStorage.orders = JSON.stringify(orders);
+							localStorage.cart = JSON.stringify([]);
 							//跳转到确认订单页面
-							mui.openWindow({url:"confirmOrder.html"})
+							mui.openWindow({
+								url:"confirmOrder.html",
+								extras:{
+									money:totalMoney
+								}
+							})
 						}
+					}else{
+						//地址为空
+						mui.openWindow({url:"addAddress.html"})
 					}
 				});
 				//添加返回事件方法

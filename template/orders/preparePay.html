@@ -33,7 +33,7 @@
 			.item-list{
 				position: relative;
 				float: left;
-				background: #f5f5f5;
+				background: white;
 				display: block;
 			}
 			.item-img{
@@ -114,7 +114,7 @@
 				<div class="mui-slider-group" id="bodyId">
 					<div id="item1mobile" name="" class="mui-slider-item mui-control-content">
 						<ul class="mui-table-view">
-							<li class="mui-table-view-cell" style="padding: 0px;">
+							<!--<li class="mui-table-view-cell" style="padding: 0px;">
 								<div class="item-list">
 									<div class="item-img">
 										<img src="../../imgs/foods/food2.jpg" />
@@ -127,23 +127,7 @@
 										<p class="num">x1</p>
 									</div>
 								</div>
-							</li>
-							
-							<li class="mui-table-view-cell" style="padding: 0px;">
-								<div class="item-list" >
-									<div class="item-img">
-										<img src="../../imgs/foods/food2.jpg" />
-									</div>
-									<div class="item-info">
-										<p class="item-title">洽洽好南仁南瓜子休闲零食炒货小吃盐焗味150g恰恰</p>
-									</div>
-									<div class="item-pay">
-										<p class="price">￥13.90</p>
-										<p class="num">x1</p>
-									</div>
-								</div>
-							</li>
-							
+							</li>-->
 						</ul>
 					</div>
 					<div id="item2mobile" name="" class="mui-slider-item mui-control-content  mui-active">
@@ -231,17 +215,27 @@
 		<script>
 			mui.init();
 			mui.plusReady(function(){
-				/*var self = plus.webview.currentWebview();
-				console.log(self.activeId);
-				var as = $('#headId a');
-				//console.log();
-				as.attr("class","mui-control-item");
-				as[self.activeId].className = "mui-control-item mui-active";
-				
-				var divs = $('#bodyId div[name]');
-				console.log(divs.length);
-				divs.attr("class","mui-slider-item mui-control-content");
-				divs[self.activeId].className = "mui-slider-item mui-control-content mui-active";*/
+				//从localStorage中获取订单信息
+				var orders = JSON.parse(localStorage.orders);
+				if(orders != null && orders.length > 0){
+					console.log(JSON.stringify(order));
+					//全部
+					var all = $('<li class="mui-table-view-cell" style="padding: 0px;">\
+								<div class="item-list">\
+									<div class="item-img">\
+										<img src="../../imgs/foods/food2.jpg" />\
+									</div>\
+									<div class="item-info">\
+										<p class="item-title">洽洽好南仁南瓜子休闲零食炒货小吃盐焗味150g恰恰</p>\
+									</div>\
+									<div class="item-pay">\
+										<p class="price">￥13.90</p>\
+										<p class="num">x1</p>\
+									</div>\
+								</div>\
+							</li>');
+					$('#item1mobile ul').append(all);
+				}
 			})
 		</script>
 
