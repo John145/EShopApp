@@ -138,6 +138,9 @@
 				border-radius: 50%;
 				line-height: 18px;
 			}
+			a{
+				color: white;
+			}
 		</style>
 	</head>
 
@@ -147,7 +150,7 @@
 				<img class="mui-icon-image" src="../imgs/others/pic_default1.png" style=""/>
 			</div>
 			<div class="username">
-				<span class="name" id="username">未登录</span>
+				<a class="user"><span class="name" id="username">未登录</span></a>
 			</div>
 		</div>
 		
@@ -300,6 +303,12 @@
 				$('.myAssess').click(function(){
 					mui.openWindow({
 						url:"myAssess.html"
+					})
+				});
+				
+				$('.user').click(function(){
+					mui.openWindow({
+						url:"user.html"
 					})
 				});
 				
