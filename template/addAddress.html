@@ -177,9 +177,9 @@
 					curUser.addresses.push({
 						name:$('#name').val(),
 						phone:$('#phone').val(),
-						city:$('#city').val(),
+						city:$('#location').val(),
 						detail:$('#detail').val(),
-						status:1
+						status:0
 					});
 					localStorage.curUser = JSON.stringify(curUser);
 					console.log(localStorage.curUser)

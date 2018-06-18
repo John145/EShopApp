@@ -93,15 +93,15 @@
 					</div>
 					<div class="mui-input-row mui-radio mui-left" style="position: relative;float: left;height: 40px;">
 						<label style="">设为默认</label>
-						<input name="radio1" type="radio">
+						<input class="set" name="radio1" type="radio">
 					</div>
 					<div class="edit" style="font-size: 20px;line-height: 40px;margin-left:200px;">
 						<a class="editAddress"><span style="text-align: center;"><img src="../imgs/others/edit.png"/>  编辑</span></a>
-						<a href="#" style="margin-left: 10px;"><span style="text-align: center;"><img src="../imgs/others/delete1.png"/>  删除</span></a>
+						<a href="#" style="margin-left: 10px;"><span id="deleteAddr" class="deleteAddress" style="text-align: center;"><img src="../imgs/others/delete1.png"/>  删除</span></a>
 					</div>
-					
 					<hr style="border: 1px solid #ccc;" />
 				</li>
+				
 			</ul>
 		</div>
 		
@@ -116,9 +116,6 @@
 			var tel = $('.tel').html().trim();
 			var address = $('.address').html().trim();
 			
-			
-			//alert(user['name']);
-			
 			mui.init();
 			
 			var param = {
@@ -131,7 +128,49 @@
 				console.log("my ready");
 				if(localStorage.curUser){
 					var curUser = JSON.parse(localStorage.curUser);
-					$('#username').text(curUser.username);	
+					var addressList = document.getElementById("addressList");
+					var html = addressList.innerHTML;
+					$('#username').text(curUser.username);
+					console.log("cccccccccccc"+localStorage.curUser);
+					console.log(curUser.addresses.length);
+					
+					for (var i=0;i<curUser.addresses.length;i++) {
+						var addressList = document.getElementById("addressList");
+						var name = curUser.addresses[i].name;
+						var phone = curUser.addresses[i].phone;
+						var city = curUser.addresses[i].city;
+						var detail = curUser.addresses[i].detail;
+						var status = curUser.addresses[i].status;
+						
+						html += '<li id="data-username"> <div class="font-32"> <label>收货人:</label> <label class="username">'+name+'</label> <label class="tel" style="float: right;">'+phone+'</label> </div> <div class="font-24"> <label>收货地址:</label> <label class="address">'+detail+'</label> </div> <div class="mui-input-row mui-radio mui-left" style="position: relative;float: left;height: 40px;"> <label  class="set" style="">设为默认</label> <input name="radio1" type="radio"> </div> <div class="edit" style="font-size: 20px;line-height: 40px;margin-left:200px;"> <a class="editAddress"><span style="text-align: center;"><img src="../imgs/others/edit.png"/> 编辑</span></a> <a href="#" style="margin-left: 10px;"><span id="deleteAddr"  class="deleteAddress" style="text-align: center;"><img src="../imgs/others/delete1.png"/> 删除</span></a> </div> <hr style="border: 1px solid #ccc;" /> </li>';
+						addressList.innerHTML = html;
+					}
+				//删除地址	
+				var addrList = document.getElementById("addressList");
+				var lis = addrList.getElementsByTagName("li");
+				//console.log("li:"+lis.length)
+				var deletes = document.getElementsByClassName("deleteAddress");
+				console.log("删除节点个数"+deletes.length);
+				for (var k=0;k<deletes.length;k++) {
+					deletes[k].onclick = function(){
+						$(this).parent().parent().parent().empty();
+						console.log("k:"+k);
+						localStorage.removeItem('addresses[k]');
+					}
+				}
+				
+				//设为默认地址
+				var sets = document.getElementsByClassName("set");
+				//console.log(sets.length);
+				for (var k=0;k<sets.length;k++) {
+					sets[k].onclick = function(){
+						curUser.addresses[k][status]=0;
+						console.log("status:"+curUser.addresses[k].status);
+						sets[k].nextSibling.setAttribute("checked","checked");
+					}
+					
+				}
+
 				}
 				$('.editAddress').click(function(){
 					mui.openWindow({
